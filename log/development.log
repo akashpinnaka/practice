@@ -1,0 +1,1474 @@
+  [1m[36m (145.7ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (321.4ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateNotes (20151015075715)
+  [1m[35m (121.3ms)[0m  CREATE TABLE `notes` (`id` int(11) auto_increment PRIMARY KEY, `title` text, `content` text, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20151015075715')
+  [1m[36m (50.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUsers (20151017085505)
+  [1m[35m (108.9ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `first_name` varchar(25), `last_name` varchar(25), `username` varchar(25), `email` varchar(255) DEFAULT '' NOT NULL, `password_digest` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20151017085505')
+  [1m[36m (52.1ms)[0m  [1mCOMMIT[0m
+Migrating to AddUserIdToNote (20151017091632)
+  [1m[35m (500.5ms)[0m  ALTER TABLE `notes` ADD `user_id` int(11)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20151017091632')
+  [1m[36m (52.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.4ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'notebook'
+  AND fk.table_name = 'notes'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `notes`
+  [1m[36m (0.4ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'notebook'
+  AND fk.table_name = 'users'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `users`
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-21 18:44:51 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (1.8ms)
+Completed 200 OK in 896ms (Views: 883.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/users.self-ea5bc92b404930704ea3e0394234669daf634531f2b1ac0860dec8bb06663a0b.css?body=1" for 127.0.0.1 at 2015-10-21 18:44:52 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 18:44:52 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 18:44:52 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 18:44:52 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 18:44:52 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 18:44:52 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 18:44:52 +0530
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-21 18:45:00 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (0.4ms)
+Completed 200 OK in 60ms (Views: 59.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/users.self-ea5bc92b404930704ea3e0394234669daf634531f2b1ac0860dec8bb06663a0b.css?body=1" for 127.0.0.1 at 2015-10-21 18:45:01 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 18:45:01 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 18:45:01 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 18:45:01 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 18:45:01 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 18:45:01 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 18:45:01 +0530
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-10-21 18:45:04 +0530
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/users (52.3ms)
+Completed 200 OK in 142ms (Views: 123.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/notebook-700c2adca39d55c9eb20b22618d698cb51b640ab3a4cae2206dac34d380e7e94.png" for 127.0.0.1 at 2015-10-21 18:45:05 +0530
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-10-21 18:45:39 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KNhsuLP6AZALJX6liN2zyo54wPBc1fs/lcJUjsAYZzuRCRmIkMTijWtor6nM/Dgv1RJlzrZMRXA8Ip7zmjS38g==", "user"=>{"first_name"=>"Mohan", "last_name"=>"Krishna", "username"=>"mohankrishna", "email"=>"mohankrishnanalluri@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'mohankrishna' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'mohankrishnanalluri@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`first_name`, `last_name`, `username`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('Mohan', 'Krishna', 'mohankrishna', 'mohankrishnanalluri@gmail.com', '$2a$10$bTiCVyI71Ph4d.8o/1mmtuWXaMq5Ygn0rpr6LPHJta4GK3wdXFgUS', '2015-10-21 13:15:39', '2015-10-21 13:15:39')[0m
+  [1m[35m (52.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/notes
+Completed 302 Found in 187ms (ActiveRecord: 53.1ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 18:45:39 +0530
+Processing by NotesController#index as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-21 18:45:39 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (0.3ms)
+Completed 200 OK in 36ms (Views: 34.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/attempt_login" for 127.0.0.1 at 2015-10-21 18:45:57 +0530
+Processing by UsersController#attempt_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O9ZYeuf7rDKh+2jdOOXnYKsxXgkSsQ8xSn1asCjUJX2CBy1KxMVPL8G2udF8xGyF8Fv7N/gosX7jnZDNcvj1tA==", "email"=>"mohankrishnanalluri@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'mohankrishnanalluri@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/notes
+Completed 302 Found in 99ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 18:45:57 +0530
+Processing by NotesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mNote Load (0.3ms)[0m  [1mSELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC[0m
+  Rendered notes/index.html.erb within layouts/notes (2.7ms)
+Completed 200 OK in 108ms (Views: 93.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/notes.self-ce1071fda9f2924e858263cafa9fcbd3ec009f56e3a9d87549bb28dda74f2cd5.css?body=1" for 127.0.0.1 at 2015-10-21 18:45:58 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-21 18:45:58 +0530
+
+
+Started GET "/notes/new" for 127.0.0.1 at 2015-10-21 18:46:00 +0530
+Processing by NotesController#new as HTML
+  Rendered notes/new.html.erb within layouts/notes (4.6ms)
+Completed 200 OK in 44ms (Views: 38.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/notes/create" for 127.0.0.1 at 2015-10-21 18:46:25 +0530
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1G7wZvq1xg+7wd8lU+2QDKXOA5WeCvPdQrKY6nI/7FNtv4VW2YslEtuMDikXzBvp/qSmq3STTZLrUlKXKBM8mg==", "note"=>{"title"=>"Note 1", "content"=>"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."}, "commit"=>"Create note"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `notes` (`title`, `content`, `user_id`, `created_at`, `updated_at`) VALUES ('Note 1', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).', 1, '2015-10-21 13:16:25', '2015-10-21 13:16:25')
+  [1m[36m (141.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/notes/show/1
+Completed 302 Found in 151ms (ActiveRecord: 142.0ms)
+
+
+Started GET "/notes/show/1" for 127.0.0.1 at 2015-10-21 18:46:25 +0530
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mNote Load (0.4ms)[0m  SELECT  `notes`.* FROM `notes` WHERE `notes`.`id` = 1 LIMIT 1
+  Rendered notes/show.html.erb within layouts/notes (1.9ms)
+Completed 200 OK in 44ms (Views: 41.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 18:46:27 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.4ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (7.5ms)
+Completed 200 OK in 64ms (Views: 60.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/logout" for 127.0.0.1 at 2015-10-21 18:46:42 +0530
+Processing by UsersController#logout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-21 18:46:42 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (1.9ms)
+Completed 200 OK in 42ms (Views: 41.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/logout" for 127.0.0.1 at 2015-10-21 18:46:42 +0530
+Processing by UsersController#logout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-21 18:46:42 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (0.3ms)
+Completed 200 OK in 26ms (Views: 25.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-10-21 18:56:04 +0530
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/users (6.7ms)
+Completed 200 OK in 101ms (Views: 87.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-10-21 18:56:05 +0530
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/users (4.7ms)
+Completed 200 OK in 31ms (Views: 29.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/users.self-1dad0eb19801c31342d707bae22c2bac9e50fc2fc1b61415d1779291b1a54175.css?body=1" for 127.0.0.1 at 2015-10-21 18:56:05 +0530
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-10-21 18:56:38 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rL/w523Ig3Xr1Aes6fZ3WT79u1wBf8VJkD80nH0K/eEVboXXTvZgaIuZ1qCt1/y8ZZceYuvmewY53/7hJyYtKA==", "user"=>{"first_name"=>"firstname", "last_name"=>"lastname", "username"=>"username", "email"=>"email", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'username' LIMIT 1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'email' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `users` (`first_name`, `last_name`, `username`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('firstname', 'lastname', 'username', 'email', '$2a$10$MhI68YnWNJUcPZw93VRKse1wrLd7XICApLJY1Irstrfw8kQFg27ri', '2015-10-21 13:26:38', '2015-10-21 13:26:38')
+  [1m[36m (78.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/notes
+Completed 302 Found in 195ms (ActiveRecord: 80.0ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 18:56:38 +0530
+Processing by NotesController#index as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-21 18:56:38 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (0.9ms)
+Completed 200 OK in 28ms (Views: 27.0ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users`  ORDER BY `users`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM `users` WHERE `users`.`id` = 2[0m
+  [1m[35m (78.4ms)[0m  COMMIT
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-10-21 18:57:47 +0530
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/users (10.9ms)
+Completed 200 OK in 52ms (Views: 51.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-10-21 18:57:51 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IVu9yc24C3Fk+pvBsCQaoE1bu4fB2+Wu2BgImKCoj8iYisj57obobAS3Ss30BZFFFjEeuStCW+Fx+MLl+oRfAQ==", "user"=>{"first_name"=>"first", "last_name"=>"", "username"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY '' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY '' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  Rendered users/new.html.erb within layouts/users (5.2ms)
+Completed 200 OK in 40ms (Views: 34.1ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-10-21 18:58:06 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tAbl49WyB6ntXrG+48hCz+3AMQ39Yc4uZEQ3Epn2pZkN15DT9ozktI0TYLKn6ckqtqqUMxf4cGHNpP1vw9p1UA==", "user"=>{"first_name"=>"first", "last_name"=>"last", "username"=>"wlvusdhc", "email"=>"odnvkm", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'wlvusdhc' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'odnvkm' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`first_name`, `last_name`, `username`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('first', 'last', 'wlvusdhc', 'odnvkm', '$2a$10$8viEQOfxbpHq1FZSmLMwie7YweRX92PqOAaNot9r5o7bkQEzjnsqu', '2015-10-21 13:28:06', '2015-10-21 13:28:06')[0m
+  [1m[35m (52.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/notes
+Completed 302 Found in 175ms (ActiveRecord: 52.9ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 18:58:06 +0530
+Processing by NotesController#index as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-21 18:58:07 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (1.2ms)
+Completed 200 OK in 30ms (Views: 29.1ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  `users`.* FROM `users`  ORDER BY `users`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM `users` WHERE `users`.`id` = 3[0m
+  [1m[35m (66.6ms)[0m  COMMIT
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-10-21 18:58:35 +0530
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/users (7.8ms)
+Completed 200 OK in 49ms (Views: 48.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-10-21 18:58:45 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"idChr3Ou20Jr3oqhLbB8YM55K0+IkpZOBzTfwl8BnL0wAdSfUJA4XwuTW61pkfeFlROOcWILKAGu1BW/BS1MdA==", "user"=>{"first_name"=>"vdns", "last_name"=>"ajknsvm", "username"=>"on;klvdm", "email"=>"m;oklmd ", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'on;klvdm' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'm;oklmd ' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`first_name`, `last_name`, `username`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('vdns', 'ajknsvm', 'on;klvdm', 'm;oklmd ', '$2a$10$Jrka4KHugS3sZiys3.wukO/WSaop5xJRmSGWc97pgMJSORzukCbMm', '2015-10-21 13:28:45', '2015-10-21 13:28:45')
+  [1m[36m (68.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/notes
+Completed 302 Found in 183ms (ActiveRecord: 69.4ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 18:58:45 +0530
+Processing by NotesController#index as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-21 18:58:45 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (1.1ms)
+Completed 200 OK in 24ms (Views: 23.6ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  `users`.* FROM `users`  ORDER BY `users`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mDELETE FROM `users` WHERE `users`.`id` = 4[0m
+  [1m[35m (34.1ms)[0m  COMMIT
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-21 18:59:28 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (0.8ms)
+Completed 200 OK in 108ms (Views: 107.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/users.self-1514a5cd1cd60bcca23742a9993c28ab9a237cb9dd27bc9af83543291f522c36.css?body=1" for 127.0.0.1 at 2015-10-21 18:59:28 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 18:59:28 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 18:59:28 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 18:59:28 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 18:59:28 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 18:59:28 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 18:59:28 +0530
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-10-21 18:59:31 +0530
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/users (8.7ms)
+Completed 200 OK in 55ms (Views: 54.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-10-21 18:59:39 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kku9sT9pelP/eOvDX7Odyx9UCDSUfUwKGwrxNxQ5TW0rmsiBHFeZTp81Os8bkhYuRD6tCn7k8kWy6jtKThWdpA==", "user"=>{"first_name"=>"avyducb", "last_name"=>"nlfkdm", "username"=>"olnkfdm", "email"=>"on;lks d", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'olnkfdm' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'on;lks d' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`first_name`, `last_name`, `username`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('avyducb', 'nlfkdm', 'olnkfdm', 'on;lks d', '$2a$10$ulpv3BO//DQ1U2/5lq4tbeHiPg1od2xZTGfy.Agc/oiBeDNI1Oh8G', '2015-10-21 13:29:39', '2015-10-21 13:29:39')[0m
+  [1m[35m (89.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/notes
+Completed 302 Found in 190ms (ActiveRecord: 90.6ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 18:59:39 +0530
+Processing by NotesController#index as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-21 18:59:39 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (0.3ms)
+Completed 200 OK in 26ms (Views: 25.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-21 18:59:44 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (0.7ms)
+Completed 200 OK in 44ms (Views: 43.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/users.self-1514a5cd1cd60bcca23742a9993c28ab9a237cb9dd27bc9af83543291f522c36.css?body=1" for 127.0.0.1 at 2015-10-21 18:59:44 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 18:59:44 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 18:59:44 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 18:59:44 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 18:59:44 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 18:59:44 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 18:59:44 +0530
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  `users`.* FROM `users`  ORDER BY `users`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mDELETE FROM `users` WHERE `users`.`id` = 5[0m
+  [1m[35m (68.1ms)[0m  COMMIT
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  `users`.* FROM `users`  ORDER BY `users`.`id` DESC LIMIT 1[0m
+
+
+Started POST "/users/attempt_login" for 127.0.0.1 at 2015-10-21 19:01:28 +0530
+Processing by UsersController#attempt_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DpsaXZO0v5KHHNbdna2W2TAiAkKxoakRzvKyOPqQZgC3Sm9tsIpcj+dRB9HZjB08a0infFs4F15nEnhFoLy2yQ==", "email"=>"aakash.pinnaka@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'aakash.pinnaka@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered users/index.html.erb within layouts/users (0.7ms)
+Completed 200 OK in 41ms (Views: 34.2ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/users/attempt_login" for 127.0.0.1 at 2015-10-21 19:01:37 +0530
+Processing by UsersController#attempt_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bubo4ufbc4NNEJ6pAmK8i7wdl4Yq4/jDipm7O+lR173XN53SxOWQni1dT6VGQzdu53cyuMB6RowjeXFGs30HdA==", "email"=>"aakash.pinnaka@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'aakash.pinnaka@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered users/index.html.erb within layouts/users (0.7ms)
+Completed 200 OK in 48ms (Views: 45.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/attempt_login" for 127.0.0.1 at 2015-10-21 19:01:50 +0530
+Processing by UsersController#attempt_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0RUD+nHbCutxooq6BEJazqjuYXPVsa2iBmtPVRKvFNBoxHbKUuXp9hHvW7ZAY9Er84TETT8oE+2vi4UoSIPEGQ==", "email"=>"aakash.pinnaka@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'aakash.pinnaka@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered users/index.html.erb within layouts/users (0.4ms)
+Completed 200 OK in 40ms (Views: 38.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/attempt_login" for 127.0.0.1 at 2015-10-21 19:02:05 +0530
+Processing by UsersController#attempt_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wqL46e/QhlQgz9BYtwUtjraWHRVSXjzVXXdC7lUTg097c43ZzO5lSUCCAVTzJKZr7fy4K7jHgpr0l4iTDz9Thg==", "email"=>"pavani.pinnaka@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'pavani.pinnaka@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered users/index.html.erb within layouts/users (0.7ms)
+Completed 200 OK in 45ms (Views: 43.1ms | ActiveRecord: 0.4ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users`
+
+
+Started POST "/users/attempt_login" for 127.0.0.1 at 2015-10-21 19:02:28 +0530
+Processing by UsersController#attempt_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cgMvrUzg55BZmkfHa22iQcw18aYE+hvTZdcVBg//BHvL0lqdb94EjTnXlssvTCmkl19UmO5jpZzMN997VdPUsg==", "email"=>"mohankrishnanalluri@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'mohankrishnanalluri@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/notes
+Completed 302 Found in 113ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:02:28 +0530
+Processing by NotesController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mNote Load (0.1ms)[0m  [1mSELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC[0m
+  Rendered notes/index.html.erb within layouts/notes (7.7ms)
+Completed 200 OK in 42ms (Views: 36.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/notes/new" for 127.0.0.1 at 2015-10-21 19:02:32 +0530
+Processing by NotesController#new as HTML
+  Rendered notes/new.html.erb within layouts/notes (3.6ms)
+Completed 200 OK in 62ms (Views: 60.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/notes/create" for 127.0.0.1 at 2015-10-21 19:03:10 +0530
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sZzRth2zP5rKxCzvJbpNznA1+TCh/7r6EnJM02a9pasITaSGPo3ch6qJ/eNhm8YrK19cDktmBLW7koauPJF1Yg==", "note"=>{"title"=>"note2", "content"=>"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\r\n"}, "commit"=>"Create note"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `notes` (`title`, `content`, `user_id`, `created_at`, `updated_at`) VALUES ('note2', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\r\n', 1, '2015-10-21 13:33:10', '2015-10-21 13:33:10')
+  [1m[36m (114.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/notes/index/2
+Completed 302 Found in 120ms (ActiveRecord: 114.7ms)
+
+
+Started GET "/notes/index/2" for 127.0.0.1 at 2015-10-21 19:03:10 +0530
+Processing by NotesController#index as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mNote Load (0.3ms)[0m  [1mSELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC[0m
+  Rendered notes/index.html.erb within layouts/notes (3.1ms)
+Completed 200 OK in 34ms (Views: 31.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/notes/index/2" for 127.0.0.1 at 2015-10-21 19:05:01 +0530
+Processing by NotesController#index as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mNote Load (0.3ms)[0m  [1mSELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC[0m
+  Rendered notes/index.html.erb within layouts/notes (7.5ms)
+Completed 200 OK in 108ms (Views: 92.9ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/notes.self-2204461fc05583a1daa70aad81f3eb14266ea39c8dedcb2acb2fffb6e2917a7d.css?body=1" for 127.0.0.1 at 2015-10-21 19:05:01 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 19:05:01 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 19:05:01 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 19:05:01 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:05:01 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:05:01 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 19:05:01 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-21 19:05:01 +0530
+
+
+Started GET "/notes/new" for 127.0.0.1 at 2015-10-21 19:05:08 +0530
+Processing by NotesController#new as HTML
+  Rendered notes/new.html.erb within layouts/notes (3.6ms)
+Completed 200 OK in 57ms (Views: 56.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/notes/create" for 127.0.0.1 at 2015-10-21 19:05:21 +0530
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YufWZwWVi9JIiG5HCVBr2MBcLCMLOnt0iqsukGOCuG/bNqNXJqtozyjFv0tNceA9mzaJHeGjxTsjS+TtOa5opg==", "note"=>{"title"=>"note3", "content"=>"n an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."}, "commit"=>"Create note"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `notes` (`title`, `content`, `user_id`, `created_at`, `updated_at`) VALUES ('note3', 'n an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 1, '2015-10-21 13:35:21', '2015-10-21 13:35:21')
+  [1m[36m (188.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/notes/index/3
+Completed 302 Found in 197ms (ActiveRecord: 189.0ms)
+
+
+Started GET "/notes/index/3" for 127.0.0.1 at 2015-10-21 19:05:21 +0530
+Processing by NotesController#index as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mNote Load (0.5ms)[0m  [1mSELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC[0m
+  Rendered notes/index.html.erb within layouts/notes (5.2ms)
+Completed 200 OK in 41ms (Views: 38.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/notes/new" for 127.0.0.1 at 2015-10-21 19:06:45 +0530
+Processing by NotesController#new as HTML
+  Rendered notes/new.html.erb within layouts/notes (2.0ms)
+Completed 200 OK in 37ms (Views: 36.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/notes/create" for 127.0.0.1 at 2015-10-21 19:06:55 +0530
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eQfetjiCpahF4fwtbgZu3/knhB0186TR5QeGm/59a2bA1quGG7xGtSWsLSEqJ+U6ok0hI99qGp5M50zmpFG7rw==", "note"=>{"title"=>"note4", "content"=>"n an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.n an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."}, "commit"=>"Create note"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `notes` (`title`, `content`, `user_id`, `created_at`, `updated_at`) VALUES ('note4', 'n an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.n an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 1, '2015-10-21 13:36:55', '2015-10-21 13:36:55')
+  [1m[36m (126.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/notes/index/4
+Completed 302 Found in 132ms (ActiveRecord: 127.3ms)
+
+
+Started GET "/notes/index/4" for 127.0.0.1 at 2015-10-21 19:06:55 +0530
+Processing by NotesController#index as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mNote Load (0.6ms)[0m  [1mSELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC[0m
+  Rendered notes/index.html.erb within layouts/notes (9.6ms)
+Completed 200 OK in 49ms (Views: 46.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/notes/show/3" for 127.0.0.1 at 2015-10-21 19:06:59 +0530
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mNote Load (0.7ms)[0m  SELECT  `notes`.* FROM `notes` WHERE `notes`.`id` = 3 LIMIT 1
+  Rendered notes/show.html.erb within layouts/notes (2.5ms)
+Completed 200 OK in 59ms (Views: 55.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:07:01 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.3ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (11.3ms)
+Completed 200 OK in 61ms (Views: 57.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:08:37 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.2ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (9.7ms)
+Completed 200 OK in 137ms (Views: 133.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/notes.self-06ea6390284836d482c771fd7a01cb9759f0561ebf93dccf65b7f7de35dbe3b6.css?body=1" for 127.0.0.1 at 2015-10-21 19:08:38 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 19:08:38 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 19:08:38 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 19:08:38 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:08:38 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:08:38 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 19:08:38 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-21 19:08:38 +0530
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:08:47 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.1ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (3.3ms)
+Completed 200 OK in 94ms (Views: 92.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/notes.self-136392d075c470f519e831431c2e826e9cf1bb3cad15e74dc6fd9638e338e955.css?body=1" for 127.0.0.1 at 2015-10-21 19:08:47 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 19:08:47 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 19:08:48 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:08:48 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:08:48 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 19:08:48 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 19:08:48 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-21 19:08:48 +0530
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:09:04 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.1ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (3.3ms)
+Completed 200 OK in 91ms (Views: 90.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/notes.self-7deaf709718bd59ae682cb43c0f5f84709657de4c4446fcdffcf7d5f20de6f65.css?body=1" for 127.0.0.1 at 2015-10-21 19:09:04 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 19:09:04 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 19:09:04 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:09:04 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 19:09:04 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 19:09:04 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:09:04 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-21 19:09:04 +0530
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:10:40 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.2ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (10.4ms)
+Completed 200 OK in 140ms (Views: 137.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/notes.self-abcc6de5b58a712ecc3024c65523171dae4521ee66c43369033cfc986fcdbf29.css?body=1" for 127.0.0.1 at 2015-10-21 19:10:40 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 19:10:40 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 19:10:40 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 19:10:40 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 19:10:40 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:10:40 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:10:40 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-21 19:10:40 +0530
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:10:49 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.1ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (4.6ms)
+Completed 200 OK in 95ms (Views: 92.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/notes.self-957d87c3f3e4a68161f2e20a544ceeda816c96d75922a0012fd8b6431642a167.css?body=1" for 127.0.0.1 at 2015-10-21 19:10:49 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 19:10:49 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 19:10:49 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:10:49 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:10:49 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 19:10:49 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 19:10:49 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-21 19:10:49 +0530
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:10:59 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.2ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (7.8ms)
+Completed 200 OK in 52ms (Views: 49.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/notes.self-7deaf709718bd59ae682cb43c0f5f84709657de4c4446fcdffcf7d5f20de6f65.css?body=1" for 127.0.0.1 at 2015-10-21 19:10:59 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 19:10:59 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:10:59 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 19:10:59 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:10:59 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 19:10:59 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 19:10:59 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-21 19:10:59 +0530
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:11:22 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.3ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (7.5ms)
+Completed 200 OK in 117ms (Views: 114.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 19:11:22 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 19:11:22 +0530
+
+
+Started GET "/assets/notes.self-c4093f3a14fa79fad4ecdb281b0bc651d462aff996acc441d7b50862e88b6440.css?body=1" for 127.0.0.1 at 2015-10-21 19:11:22 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 19:11:22 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 19:11:22 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:11:22 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:11:22 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-21 19:11:22 +0530
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:11:51 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.1ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (3.4ms)
+Completed 200 OK in 98ms (Views: 96.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/notes.self-03842aa7ca54fffa8a53b4e19ff3f50f4cda15d48f5ed67f1095bd4969c58eda.css?body=1" for 127.0.0.1 at 2015-10-21 19:11:51 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 19:11:51 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 19:11:51 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:11:51 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 19:11:51 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:11:51 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 19:11:51 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-21 19:11:51 +0530
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:12:00 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.3ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (6.7ms)
+Completed 200 OK in 132ms (Views: 129.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/notes.self-25a846412740d25d4f7409847916736a9770646fabd0600df2e5f1a414c5128c.css?body=1" for 127.0.0.1 at 2015-10-21 19:12:01 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 19:12:01 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 19:12:01 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:12:01 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:12:01 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 19:12:01 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 19:12:01 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-21 19:12:01 +0530
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:12:10 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.2ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (4.9ms)
+Completed 200 OK in 48ms (Views: 46.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/notes.self-7deaf709718bd59ae682cb43c0f5f84709657de4c4446fcdffcf7d5f20de6f65.css?body=1" for 127.0.0.1 at 2015-10-21 19:12:10 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 19:12:10 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 19:12:10 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:12:10 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:12:10 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 19:12:10 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 19:12:10 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-21 19:12:10 +0530
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:12:18 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.2ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (7.4ms)
+Completed 200 OK in 123ms (Views: 121.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/notes.self-6a7de55533c4f95fe7a663f1b92131f8280fc3807316c0a088b8202ab52f1b03.css?body=1" for 127.0.0.1 at 2015-10-21 19:12:18 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 19:12:18 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 19:12:18 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 19:12:18 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:12:18 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 19:12:18 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-21 19:12:18 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:12:18 +0530
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:12:27 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.2ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (6.6ms)
+Completed 200 OK in 130ms (Views: 127.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/notes.self-91c9a7b5923fd0ae1301936cf92d9a79b3750516b5038a096b79b685766ff389.css?body=1" for 127.0.0.1 at 2015-10-21 19:12:28 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 19:12:28 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 19:12:28 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 19:12:28 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:12:28 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 19:12:28 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:12:28 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-21 19:12:28 +0530
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:13:55 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.2ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (7.3ms)
+Completed 200 OK in 125ms (Views: 122.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/notes.self-0809f347009c2398453f8d092dc9e15a9d46ffef6b739a126f6d5ebf7ade0559.css?body=1" for 127.0.0.1 at 2015-10-21 19:13:55 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 19:13:55 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 19:13:55 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:13:55 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 19:13:55 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:13:55 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 19:13:55 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-21 19:13:55 +0530
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:14:08 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.2ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (13.1ms)
+Completed 200 OK in 47ms (Views: 45.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 19:14:08 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:14:08 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 19:14:08 +0530
+
+
+Started GET "/assets/notes.self-91c9a7b5923fd0ae1301936cf92d9a79b3750516b5038a096b79b685766ff389.css?body=1" for 127.0.0.1 at 2015-10-21 19:14:08 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:14:08 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 19:14:08 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 19:14:08 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-21 19:14:08 +0530
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:14:34 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.1ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (5.5ms)
+Completed 200 OK in 35ms (Views: 33.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/notes.self-91c9a7b5923fd0ae1301936cf92d9a79b3750516b5038a096b79b685766ff389.css?body=1" for 127.0.0.1 at 2015-10-21 19:14:34 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 19:14:34 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:14:34 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 19:14:34 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 19:14:34 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:14:34 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 19:14:34 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-21 19:14:34 +0530
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:14:43 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.1ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (9.9ms)
+Completed 200 OK in 39ms (Views: 37.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/notes.self-91c9a7b5923fd0ae1301936cf92d9a79b3750516b5038a096b79b685766ff389.css?body=1" for 127.0.0.1 at 2015-10-21 19:14:43 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 19:14:43 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 19:14:43 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:14:43 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 19:14:43 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:14:43 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 19:14:43 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-21 19:14:43 +0530
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:15:15 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.2ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (9.9ms)
+Completed 200 OK in 129ms (Views: 126.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/notes.self-837707d204bc7d48b68fd7cbc77b2e94be33787f758d447ee5dd5cd736e302fc.css?body=1" for 127.0.0.1 at 2015-10-21 19:15:16 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 19:15:16 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 19:15:16 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 19:15:16 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 19:15:16 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:15:16 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:15:16 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-21 19:15:16 +0530
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:15:50 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.9ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (4.9ms)
+Completed 200 OK in 100ms (Views: 97.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/notes.self-2175ec820ededfed3fc2ae2cb1268cf201e3f23fbb825424b97002ae7e28cf07.css?body=1" for 127.0.0.1 at 2015-10-21 19:15:51 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 19:15:51 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 19:15:51 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 19:15:51 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 19:15:51 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:15:51 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:15:51 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-21 19:15:51 +0530
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:16:03 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.2ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (4.3ms)
+Completed 200 OK in 95ms (Views: 92.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 19:16:03 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:16:03 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 19:16:03 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:16:03 +0530
+
+
+Started GET "/assets/notes.self-4091aed2d55e76b358e97553637c8dac10f18a82ff8093a7af1a8e10c929089d.css?body=1" for 127.0.0.1 at 2015-10-21 19:16:03 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 19:16:03 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 19:16:03 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-21 19:16:03 +0530
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:16:32 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.2ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (6.0ms)
+Completed 200 OK in 118ms (Views: 115.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/notes.self-c952fff808542f151baf977966903c717d25a08fb76b0526620720beb5bd5f69.css?body=1" for 127.0.0.1 at 2015-10-21 19:16:32 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 19:16:32 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 19:16:32 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 19:16:32 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 19:16:32 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:16:32 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:16:32 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-21 19:16:32 +0530
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:16:40 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.2ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (4.4ms)
+Completed 200 OK in 39ms (Views: 37.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/notes.self-837707d204bc7d48b68fd7cbc77b2e94be33787f758d447ee5dd5cd736e302fc.css?body=1" for 127.0.0.1 at 2015-10-21 19:16:40 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 19:16:40 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 19:16:40 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 19:16:40 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-21 19:16:40 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:16:40 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:16:40 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 19:16:40 +0530
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:18:47 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.3ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (10.8ms)
+Completed 200 OK in 139ms (Views: 136.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/notes.self-4fa2b6d248bfcbd141fc3e1487c0bc437060249b22ca3e4d3ff86f39a6cdcf70.css?body=1" for 127.0.0.1 at 2015-10-21 19:18:47 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 19:18:47 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 19:18:47 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:18:47 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 19:18:47 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 19:18:47 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:18:47 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-21 19:18:47 +0530
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:19:12 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.2ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (8.9ms)
+Completed 200 OK in 59ms (Views: 55.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/notes.self-4fa2b6d248bfcbd141fc3e1487c0bc437060249b22ca3e4d3ff86f39a6cdcf70.css?body=1" for 127.0.0.1 at 2015-10-21 19:19:12 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 19:19:12 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 19:19:12 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:19:12 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 19:19:12 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 19:19:12 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:19:12 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-21 19:19:12 +0530
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:20:36 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.2ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (7.0ms)
+Completed 200 OK in 41ms (Views: 39.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/notes.self-4fa2b6d248bfcbd141fc3e1487c0bc437060249b22ca3e4d3ff86f39a6cdcf70.css?body=1" for 127.0.0.1 at 2015-10-21 19:20:36 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 19:20:36 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 19:20:36 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:20:36 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 19:20:36 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:20:36 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 19:20:36 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-21 19:20:36 +0530
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:21:36 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.2ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (7.5ms)
+Completed 200 OK in 133ms (Views: 130.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/notes.self-1f733bfa39cd1fca2ab2894cf83fce389691953362eac99407864d9c303f78cb.css?body=1" for 127.0.0.1 at 2015-10-21 19:21:37 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 19:21:37 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 19:21:37 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 19:21:37 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:21:37 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:21:37 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 19:21:37 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-21 19:21:37 +0530
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:21:47 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.2ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (4.8ms)
+Completed 200 OK in 109ms (Views: 107.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/notes.self-8581019df5cab3df96f8948a26f41b50504e79c61f4345affbc66772dc66ac6a.css?body=1" for 127.0.0.1 at 2015-10-21 19:21:48 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-21 19:21:48 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:21:48 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-21 19:21:48 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-21 19:21:48 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-21 19:21:48 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-21 19:21:48 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-21 19:21:48 +0530
+
+
+Started GET "/notes/show/4" for 127.0.0.1 at 2015-10-21 19:39:56 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mNote Load (0.4ms)[0m  SELECT  `notes`.* FROM `notes` WHERE `notes`.`id` = 4 LIMIT 1
+  Rendered notes/show.html.erb within layouts/notes (1.7ms)
+Completed 200 OK in 244ms (Views: 221.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/notes/show/4" for 127.0.0.1 at 2015-10-21 19:39:56 +0530
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mNote Load (0.1ms)[0m  [1mSELECT  `notes`.* FROM `notes` WHERE `notes`.`id` = 4 LIMIT 1[0m
+  Rendered notes/show.html.erb within layouts/notes (1.0ms)
+Completed 200 OK in 32ms (Views: 31.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/notes.self-f468c4b875d9b9cf00e4bfc3c60ae5d457777da5ba1c5fbe770d1391a243b9c2.css?body=1" for 127.0.0.1 at 2015-10-21 19:39:57 +0530
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:39:58 +0530
+Processing by NotesController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mNote Load (0.3ms)[0m  [1mSELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC[0m
+  Rendered notes/index.html.erb within layouts/notes (24.8ms)
+Completed 200 OK in 147ms (Views: 77.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/notes/show/3" for 127.0.0.1 at 2015-10-21 19:40:00 +0530
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mNote Load (0.3ms)[0m  SELECT  `notes`.* FROM `notes` WHERE `notes`.`id` = 3 LIMIT 1
+  Rendered notes/show.html.erb within layouts/notes (1.0ms)
+Completed 200 OK in 70ms (Views: 67.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-21 19:40:01 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mNote Load (0.3ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (10.5ms)
+Completed 200 OK in 69ms (Views: 64.6ms | ActiveRecord: 0.8ms)

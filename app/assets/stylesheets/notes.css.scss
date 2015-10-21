@@ -1,0 +1,102 @@
+/*
+
+ *= require_self
+ */
+
+
+body{background: #ffffee; font-family: 'Montserrat', sans-serif;}
+div#page{width: 980px; margin: 0px auto;}
+div#layout_header{position: fixed;background: #00cc66;width: 100%; top: 0px; left: 0px;
+                  border-bottom: 3px solid #922;}
+h1#header{text-align: center; color: #8a0707;}
+p#welcome{text-align: center; color: #922; background: #aaf; padding: 5px;}
+p#flash_notice_notes_index{margin: 0px auto; text-align: center; color: #922;
+                            background-color: #ccf;width: 900px;}
+img#logo{position: fixed; top: 10px; left: 10%;}
+/*div#content_wrapper{margin-bottom: 100px;}*/
+div#footer_index{width: 100%; height: 50px; background: #00cc66; position: fixed;
+                 left: 0px; bottom: 2px;}
+p#copyright{text-align: center; color: #fff;}
+a.note_title{color: #00cc66;}
+div#actions{float: right;}
+div#title_actions_new{margin-top: 100px; width: 980px;}
+div.title_actions{width: 980px; margin: 0px auto;}
+a{text-decoration: none;}
+a.new_note{float: right;background: #00cc66; padding: 7px; border-radius: 3px; 
+           color: #fff; margin-right: 10px;border: 1px solid #0c6;}
+a.new_note:hover{background: #fff; color: #00cc66; border: 1px solid #00cc66;}
+a.new_note:active{background: #00cc66; color: #fff;}
+a.button{background: #fff; padding: 3px; border-radius: 3px;
+         color: #00cc66; border: 1px solid #00cc66;display:inline-block; width: 55px;
+         text-align: center;}
+a.button:hover{background: #00cc66; color: #fff;}
+a.button:active{background: #fff; color: #00cc66;}
+p.content_index{color: #555555;}
+p#time_ago{color: #aaa; font-size: 0.8em;}
+
+/* STYLES FOR SHOW PAGE */
+div#main_content_show{margin: 150px 0 0 0;}
+div#content{margin-top: 40px;background: #ffffff; padding: 10px 20px 20px 20px;
+	       margin-bottom: 80px; border-radius: 10px;}
+a#back_link{background: #00cc66; padding: 7px; color: #fff; border-radius: 3px;}
+a#back_link:hover{background: #fff; color: #00cc66; border: 1px solid #00cc66;}
+a#back_link:active{background: #00cc66; color: #fff;}
+p#paragraph_content{text-align: justify}
+div#footer_show{width: 100%; height: 50px; background: #00cc66; position: fixed;
+                 bottom: -5px; left: 0px; margin:40px 0px 5px 0px;
+                 /*border-bottom: 10px solid #fee;*/}
+a.edit_button_show{background: #0c6; padding: 5px; border-radius: 3px;
+                   color: #fff; display:inline-block; width: 70px;
+                   text-align: center;position: relative; bottom: 50px;}
+a.edit_button_show:hover{background: #fff; color: #0c6; border: 1px solid #0c6;}
+a.edit_button_show:active{background: #0c6; color: #fff;}
+
+/* STYLES FOR NEW & EDIT PAGE */
+div#main_content_new{margin-top: 150px;}
+input#title_field{width: 700px; height: 18px;}
+textarea#content_field{width: 700px; height: 200px;}
+input.field,textarea.field{margin-top: 5px; border-radius: 3px; border: 1px solid #6e6;
+                           padding: 10px;}
+input.submit_note{background: #0c6; padding: 8px 11px 8px 11px; color: #fff;
+                  border: 1px solid #0c6; border-radius: 3px; margin-top: 6px;
+                  cursor: pointer;}
+input.submit_note:hover{background: #fff; color: #00cc66; border: 1px solid #00cc66;}
+input.submit_note:active{background: #00cc66; color: #fff;}
+a.cancel{background: #00cc66; padding: 7px 11px 7px 11px; color: #fff; border-radius: 3px;
+         position: relative; top: 1px; width: 70px;font-size: 99%;}
+a.cancel:hover{background: #fff; color: #00cc66; border: 1px solid #00cc66;}
+a.cancel:active{background: #00cc66; color: #fff;}
+div#footer_new{background: #00cc66; height: 50px; width: 100%; position: absolute;
+              left: 0px; bottom: 4px; }
+.no_outline:focus{outline: none;}
+
+/* STYLES FOR DELETE PAGE */
+
+div#main_content_delete{margin-top: 200px; background: #fff; padding: 30px;
+	                    border-radius: 10px}
+input.submit_delete{background: #00cc66; border: 1px solid #00cc66; color: #fff;
+                    padding: 5px 10px 5px 10px; border-radius: 3px; cursor: pointer;}
+input.submit_delete:hover{background: #fff; border: 1px solid #00cc66; color: #0c6;}
+p#del_content{color: #888;}
+
+
+ /* STYLES FOR USERS EDIT PAGE */
+ div#main_content_edit{position: absolute; top: 120px; right: 50px;}
+ a#back_to_profile{position: absolute; top: 150px;}
+
+  /* STYLES FOR USERS SHOW PAGE */
+div#main_content_show{ background: #fff;padding: 50px;
+                      border-radius: 10px;}
+.align_left{text-align: left;}
+.padd{padding: 5px;}
+a#edit_profile{background: #0c6; color: #fff; padding: 5px;border-radius: 3px;
+               position: relative; top: 10px; border: 1px solid #0c6;}
+a#edit_profile:hover{background: #fff; color: #0c6; border: 1px solid #0c6;}
+a#edit_profile:active{background: #0c6; color: #fff;}
+a#back_link_show{position: absolute; top: 130px;}
+input.field_signup{width: 180px; padding: 5px;border: none;border-radius: 3px;
+                   box-shadow: 0px 0px 1px #000;}
+input#update_user{border: none; cursor: pointer;background: #0c6; color: #fff; 
+  padding: 5px 8px;border-radius: 3px; position: relative; top: 10px;}
+input#update_user:hover{background: #fff; color: #0c6; border: 1px solid #0c6;}
+input#update_user:active{background: #0c6; color: #fff;}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Notebook</title>
+  <%= stylesheet_link_tag    'users', media: 'all', 'data-turbolinks-track' => true %>
+   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'
+        type='text/css'>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id = "login_form_div">
+<span id = "header_filler"><b>Notebook</b></span>
+   <%= form_tag({:action => "attempt_login"}, :id => "login_form") do |f| %>
+      <table>
+      	<tr>
+      		<td class = "align_left no_border"><%= label_tag(:email) %></td>
+      		<td class = "align_left no_border"><%= label_tag(:password) %></td>
+      	</tr>
+      	<tr>
+      		<td class = "align_left no_border no_border">
+                  <%= text_field_tag(:email,"",:id => 'email_field') %></td>
+
+      		<td class = "align_left no_border"><%= password_field_tag(:password, "", 
+                                                            :id => "password_field") %></td>
+            <td class = "no_border"><%= submit_tag("Login") %></td>
+      	</tr>
+      </table>
+   <% end %>
+</div>
+
+<%= yield %>
+
+</body>
+</html>

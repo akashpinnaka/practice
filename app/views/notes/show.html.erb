@@ -1,0 +1,11 @@
+<div id = "main_content_show">
+	<%= link_to "<< Back to home", {:action => "index"}, :id => "back_link" %>
+	<div id = "content">
+		<h1><%= @note.title %></h1>
+		<p id = "paragraph_content"><%= @note.content.html_safe %></p>
+	</div>
+	<%= link_to "Edit", {:action => "edit", :id => @note.id}, :class => "edit_button_show" %>
+</div>
+<div id = "footer_show">
+<p id = "copyright">&copy;Akash Pinnaka</p>
+</div>

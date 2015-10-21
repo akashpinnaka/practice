@@ -1,0 +1,14 @@
+	<div id = "main_content_delete">
+		<%= form_for(:note, :url => {:action => 'destroy', :id => @note.id}) do |f| %>
+
+			<p>Are you sure want to permanently delete this note?</p>
+			<h2><%= @note.title %></h2>
+			<p id = "del_content"><%= truncate(@note.content, :length => 50) %></p>
+			<%= submit_tag("Delete Note", :class => "submit_note") %>
+			<%= link_to("cancel", {:action => "index"}, :class => "cancel") %>
+		<% end %>
+	
+	</div>
+	<div id = "footer_new">
+	<p id = "copyright">&copy;Akash Pinnaka</p>
+	</div>

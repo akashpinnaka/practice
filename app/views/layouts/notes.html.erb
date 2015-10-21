@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Notebook</title>
+  <%= stylesheet_link_tag 'notes', media: 'all', 'data-turbolinks-track' => true %>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'
+        type='text/css'>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id = "page">
+   
+	<div id = "layout_header">
+	    
+		<h1 id = "header">Save your private ideas, be with your plans</h1>
+	</div>
+	<%= image_tag("note.png", :id => "logo", :size => '100x100') %>
+	<%= yield %>
+</div>
+
+
+
+</body>
+</html>

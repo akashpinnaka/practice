@@ -1,0 +1,28 @@
+<%= link_to("Home", {:controller => "notes", :action => "index"}, :id => "back_link_show") %>
+<div id = "main_content_show">
+<table>
+<tr>
+<th class = "align_left padd">Name</th>
+<td>:</td>
+<td class = "align_left padd"><%= @user.first_name %> <%= @user.last_name %></td>
+</tr>
+<tr>
+<th class = "align_left padd">Username</th>
+<td>:</td>
+<td class = "align_left padd"><%= @user.username %></td>
+</tr>
+<tr>
+<th class = "align_left padd">Email</th>
+<td>:</td>
+<td class = "align_left padd"><%= @user.email %></td>
+</tr>
+<tr>
+<th class = "align_left padd">
+  <%= link_to("Edit profile", {:controller => "users", :action => "edit", :id => @user.id},
+                                :id => "edit_profile" ) %>
+</th>
+<td class = "align_left padd"></td>
+</tr>
+
+</table>
+</div>

@@ -1,0 +1,14 @@
+<div id = "main_content_new">
+<h1>Update the Idea</h1>
+<%= form_for(:note, :url => {:action => 'update', :id => @note.id}) do |f| %>
+	<%= f.label :title %><br />
+	<%= f.text_field :title, :class => "field no_outline", :id => "title_field" %><br />
+	<%= f.label :content %><br />
+	<%= f.text_area :content, :class => "field no_outline", :id => "content_field" %><br /><br />
+	<%= f.submit "Update note", :class => 'submit_note no_outline' %>
+	<%= link_to("cancel", {:action => "show", :id => @note.id}, :class => "cancel") %>
+<% end %>
+</div>
+<div id = "footer_new">
+<p id = "copyright">&copy;Akash Pinnaka</p>
+</div>

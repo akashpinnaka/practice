@@ -1,0 +1,44 @@
+<%= link_to("Home" ,{:action => "index"}, :id => "home_button") %>
+
+<%= image_tag("notebook.png", :id => "img_signup_page") %>
+
+<div id = "main_content_signup">
+
+<h1>Sign Up</h1>
+
+<%= form_for(:user, :url => {:action => "create"}) do |f| %>
+<table>
+<tr>
+<td class = "padd no_border"><%= f.label(:first_name) %></td>
+<td class = "padd no_border"><%= f.text_field(:first_name, :class => "field_signup") %></td>
+</tr>
+<tr>
+<td class = "padd no_border"><%= f.label(:last_name) %></td>
+<td class = "padd no_border"><%= f.text_field(:last_name, :class => "field_signup") %></td>
+</tr>
+<tr>
+<td class = "padd no_border"><%= f.label(:username) %></td>
+<td class = "padd"><%= f.text_field(:username, :class => "field_signup") %></td>
+</tr>
+<tr>
+<td class = "padd no_border"><%= f.label(:email) %></td>
+<td class = "padd no_border"><%= f.text_field(:email, :class => "field_signup") %></td>
+</tr>
+<tr>
+<td class = "padd no_border"><%= f.label(:password) %></td>
+<td class = "padd no_border"><%= f.password_field(:password, :class => "field_signup") %></td>
+</tr>
+<tr>
+<td class = "padd no_border"><%= f.label(:password_confirmation, "Confirm password") %></td>
+<td class = "padd no_border"><%= f.password_field(:password_confirmation,:class => "field_signup")%></td>
+</tr>
+<tr>
+<td class = "padd no_border no_border">&nbsp;</td>
+<td class = "padd no_border"><%= f.submit("Sign up") %></td>
+</tr>
+
+</table>
+
+<% end %>
+
+</div>
