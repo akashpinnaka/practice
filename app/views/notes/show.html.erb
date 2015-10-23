@@ -1,6 +1,12 @@
 <div id = "main_content_show">
 	<%= link_to "<< Back to home", {:action => "index"}, :id => "back_link" %>
+	
 	<div id = "content">
+
+		<p class = "flash_notice" id = "show_page_notes">
+		   <%= flash[:notice] %>
+		</p>
+
 		<h1><%= @note.title %></h1>
 		<p id = "paragraph_content"><%= @note.content.html_safe %></p>
 	</div>

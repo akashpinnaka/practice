@@ -26,7 +26,7 @@ input[type = "submit"]:focus{outline: none;}
 td.align_left{text-align: left;}
 td.no_border{border: none;}
 div#main_content_index{margin-top: 120px;}
-p#flash_notice_users_index{margin: 0px auto; text-align: center; color: #922;
+p.flash_notice{margin: 0px auto; text-align: center; color: #922;
                             background-color: #ccf;width: 900px;}
 .center{text-align: center;}
 a#create_account_button{text-decoration: none;color: #fff;background: #a22;padding: 10px;
@@ -54,3 +54,8 @@ a#create_account_button:active,a#home_button:active{
                border-radius: 2px;}
 
 img#img_signup_page{position: absolute; width: 500px; height: 400px; top: 150px;left:200px;}
+div#error_box{border: 1px solid #000; padding: 4px 4px 0px 4px; position: relative; background-color: #fff;}
+h3#error_heading{background: #f00; color: #fff; text-align: center; width: 100%;  
+position: absolute; left: 0px; top: -14px; padding: 2px 0px; font-size: 90%;}
+div#error_messages_list{padding-top: 10px;}
+li.error_messages{font-size: 80%;}

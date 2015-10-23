@@ -35,6 +35,7 @@ class NotesController < ApplicationController
   def update
     if @note.update(note_params)
     redirect_to(:action => "show", :id => @note.id)
+    flash[:notice] = "'#{@note.title}' updated successfully."
     else
       render("edit")
     end
@@ -53,6 +54,7 @@ class NotesController < ApplicationController
     note = Note.find(params[:id])     
     note.destroy
     redirect_to(:action => "index")
+    flash[:notice] = "your note '#{note.title}' was destroyed successfully."
   end
 
   private
