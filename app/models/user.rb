@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
 	has_secure_password
 
-	has_many :notes
+	has_many :notes, dependent: :destroy
 
 	 has_attached_file :profile_picture, styles: {},
 	                   :default_url => ":style/missing_avatar.png"
