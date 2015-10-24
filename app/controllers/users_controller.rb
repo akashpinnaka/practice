@@ -65,22 +65,21 @@ class UsersController < ApplicationController
    
 	    if found_user
 	    	authorized_user = found_user.authenticate(params[:password])
-	    end
+      end
 
     end
     
     if authorized_user
     	session[:username] = authorized_user.username
     	session[:user_id] = authorized_user.id
-    	session[:email] = authorized_user.email
-    	
+    	session[:email] = authorized_user.email    	
     	session[:first_name] = authorized_user.first_name
     	session[:last_name] = authorized_user.last_name
-
+      session[:profile_picture] = authorized_user.profile_picture
     	
     	redirect_to(:controller => "notes", :action => "index")
     else
-    	render("index")
+    	render("index")      
     end
 
   end
@@ -97,7 +96,7 @@ class UsersController < ApplicationController
 
   def user_params
   	params.require(:user).permit(:first_name, :last_name, :username,
-  	                             :email, :password, :password_confirmation)
+  	                             :email, :password, :password_confirmation, :profile_picture)
   end
 
   def confirm_logged_in

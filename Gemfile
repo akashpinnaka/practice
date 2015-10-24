@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+#To allow users upload their own images
+gem "paperclip", "~> 4.3"
 #A simple, fast Mysql library for Ruby, binding to libmysql
 gem 'mysql2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

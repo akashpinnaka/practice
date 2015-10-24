@@ -14,9 +14,14 @@
    
 	<div id = "layout_header">
 	    
-		<h1 id = "header">Save your private ideas, be with your plans</h1>
+		<h1 id = "header">
+			Save your private ideas, be with your plans
+
+		</h1>
 	</div>
 	<%= image_tag("note.png", :id => "logo", :size => '100x100') %>
+	<%= link_to(image_tag(@user.profile_picture.url, :id => "profile_pic"),
+	                           {:controller => "users", :action => "show", :id => @user.id}) %>
 	<%= yield %>
 </div>
 

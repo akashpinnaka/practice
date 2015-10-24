@@ -16,6 +16,10 @@
 <td class = "padd"><%= f.text_field(:username, :class => "field_signup") %></td>
 </tr>
 <tr>
+<td class = "padd no_border no_border"><%= f.label(:profile_picture) %></td>
+<td class = "padd no_border"><%= f.file_field(:profile_picture) %></td>
+</tr>
+<tr>
 <td class = "padd no_border"><%= f.label(:password, "New Password") %></td>
 <td class = "padd no_border"><%= f.password_field(:password, :class => "field_signup") %></td>
 </tr>

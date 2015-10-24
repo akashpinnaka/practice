@@ -4,10 +4,9 @@ class NotesController < ApplicationController
 
   before_action :find_note, :only => [:show, :edit, :update, :delete, :destroy]
   before_action :confirm_logged_in
-  # before_action :find_user
+  before_action :find_user
 
   def index
-    @user = User.find(session[:user_id])
     @notes = @user.notes.order("created_at DESC")
   end
 
@@ -71,6 +70,9 @@ def current_user
   current_user = User.find(session[:user_id])
 end
 
+def find_user
+  @user = User.find(session[:user_id])
+end
 
 def confirm_logged_in
     unless session[:user_id]
