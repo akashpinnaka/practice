@@ -10493,3 +10493,1873 @@ Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde45
 
 
 Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-24 17:41:15 +0530
+  [1m[36mUser Load (37.0ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT  `users`.* FROM `users`  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mNote Load (15.9ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 1
+  [1m[36mSQL (0.6ms)[0m  [1mDELETE FROM `users` WHERE `users`.`id` = 1[0m
+  [1m[35m (75.1ms)[0m  COMMIT
+[paperclip] deleting /home/akash/rails/practice/public/system/users/profile_pictures/000/000/001/original/Screenshot_from_2015-10-24_15_07_29.png
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  `users`.* FROM `users`  ORDER BY `users`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mNote Load (0.7ms)[0m  [1mSELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 2[0m
+  [1m[35mSQL (0.7ms)[0m  DELETE FROM `users` WHERE `users`.`id` = 2
+  [1m[36m (57.6ms)[0m  [1mCOMMIT[0m
+[paperclip] deleting /home/akash/rails/practice/public/system/users/profile_pictures/000/000/002/original/Screenshot_from_2015-10-24_17_19_50.png
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users`
+  [1m[36mNote Load (0.6ms)[0m  [1mSELECT  `notes`.* FROM `notes`  ORDER BY `notes`.`id` ASC LIMIT 1[0m
+  [1m[35mNote Load (0.7ms)[0m  SELECT `notes`.* FROM `notes`
+
+
+Started GET "/users/logout" for 127.0.0.1 at 2015-10-24 23:14:01 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by UsersController#logout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 21ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-24 23:14:01 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (20.3ms)
+Completed 200 OK in 390ms (Views: 382.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/logout" for 127.0.0.1 at 2015-10-24 23:14:02 +0530
+Processing by UsersController#logout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-24 23:14:02 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (1.1ms)
+Completed 200 OK in 30ms (Views: 29.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/attempt_login" for 127.0.0.1 at 2015-10-24 23:14:16 +0530
+Processing by UsersController#attempt_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oDO6mEFF7B98qQ831MPjpEcYBVhMOIv8h1qaZj5Rp3kZ4s+oYnsPAhzk3juQ4mhBHHKgZqahNbMuulAbZH13sA==", "email"=>"aakash.pinnaka@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'aakash.pinnaka@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered users/index.html.erb within layouts/users (0.7ms)
+Completed 200 OK in 152ms (Views: 39.3ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-10-24 23:14:21 +0530
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/users (92.1ms)
+Completed 200 OK in 132ms (Views: 124.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-10-24 23:15:03 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HYS12ARmwV0kn0He1N0mJ72jV7Ay6DXP3fGfmebYok2kVcDoJ1giQETSkNKQ/K3C5snyjthxi4B0EVXkvPRyhA==", "user"=>{"first_name"=>"Akash", "last_name"=>"Pinnaka", "username"=>"akashpinnaka", "email"=>"aakash.pinnaka@gmail.com", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x007f4598a554f8 @tempfile=#<Tempfile:/tmp/RackMultipart20151024-30653-13f01pm.png>, @original_filename="Screenshot from 2015-10-24 17:19:50.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[profile_picture]\"; filename=\"Screenshot from 2015-10-24 17:19:50.png\"\r\nContent-Type: image/png\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151024-30653-4p3kuw.png'
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151024-30653-s57p23.png'
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'akashpinnaka' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'aakash.pinnaka@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`first_name`, `last_name`, `username`, `email`, `password_digest`, `profile_picture_file_name`, `profile_picture_content_type`, `profile_picture_file_size`, `profile_picture_updated_at`, `created_at`, `updated_at`) VALUES ('Akash', 'Pinnaka', 'akashpinnaka', 'aakash.pinnaka@gmail.com', '$2a$10$a6AKKU4/HTQ8f7cVdtw3s.qGkfzEJmq0vpktH0Rb.7rbwqyDnwwj.', 'Screenshot_from_2015-10-24_17_19_50.png', 'image/png', 369146, '2015-10-24 17:45:03', '2015-10-24 17:45:03', '2015-10-24 17:45:03')
+  [1m[36m (105.6ms)[0m  [1mCOMMIT[0m
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from create at /home/akash/rails/practice/app/controllers/users_controller.rb:32)
+  Rendered user_mailer/signup_confirmation.html.erb within layouts/mailer (5.8ms)
+
+UserMailer#signup_confirmation: processed outbound mail in 17.8ms
+Completed 500 Internal Server Error in 608ms (ActiveRecord: 106.7ms)
+
+ActionView::Template::Error (undefined method `name' for #<User:0x007f45989f6d18>):
+    1: <h1>Thank <font color = "#f00"><%= @user.name %></font> for signing up to <b>Notebook</b></h1>
+  app/views/user_mailer/signup_confirmation.html.erb:1:in `_app_views_user_mailer_signup_confirmation_html_erb___1278594210696040830_69968586935180'
+  app/mailers/user_mailer.rb:12:in `signup_confirmation'
+  app/controllers/users_controller.rb:32:in `create'
+
+
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.2ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.5ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (35.0ms)
+Cannot render console with content type multipart/form-dataAllowed content types: [#<Mime::Type:0x007f45b784e438 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007f45b784e168 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007f45b785bd18 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-10-24 23:15:32 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HYS12ARmwV0kn0He1N0mJ72jV7Ay6DXP3fGfmebYok2kVcDoJ1giQETSkNKQ/K3C5snyjthxi4B0EVXkvPRyhA==", "user"=>{"first_name"=>"Akash", "last_name"=>"Pinnaka", "username"=>"akashpinnaka", "email"=>"aakash.pinnaka@gmail.com", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x007f45989494d8 @tempfile=#<Tempfile:/tmp/RackMultipart20151024-30653-tsdt38.png>, @original_filename="Screenshot from 2015-10-24 17:19:50.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[profile_picture]\"; filename=\"Screenshot from 2015-10-24 17:19:50.png\"\r\nContent-Type: image/png\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151024-30653-jq0luu.png'
+  [1m[35m (0.2ms)[0m  BEGIN
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151024-30653-1jspcph.png'
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'akashpinnaka' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'aakash.pinnaka@gmail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  Rendered users/new.html.erb within layouts/users (6.8ms)
+Completed 200 OK in 129ms (Views: 31.8ms | ActiveRecord: 1.0ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  `users`.* FROM `users`  ORDER BY `users`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mNote Load (0.6ms)[0m  [1mSELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 3[0m
+  [1m[35mSQL (0.7ms)[0m  DELETE FROM `users` WHERE `users`.`id` = 3
+  [1m[36m (60.1ms)[0m  [1mCOMMIT[0m
+[paperclip] deleting /home/akash/rails/practice/public/system/users/profile_pictures/000/000/003/original/Screenshot_from_2015-10-24_17_19_50.png
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users`
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-10-24 23:16:09 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dVulpYl4NzE39cKoMqvyYjSHTR1Cwl0QYj0G3+Qjv/zMitCVqkbULFe4E6R2inmHb+3oI6hb41/L3cyivg9vNQ==", "user"=>{"first_name"=>"Akash", "last_name"=>"Pinnaka", "username"=>"akashpinnaka", "email"=>"aakash.pinnaka@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'akashpinnaka' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'aakash.pinnaka@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`first_name`, `last_name`, `username`, `email`, `password_digest`, `created_at`, `updated_at`) VALUES ('Akash', 'Pinnaka', 'akashpinnaka', 'aakash.pinnaka@gmail.com', '$2a$10$1cYW3LyJw6spZ9U/YJy9CeO.BYxdDMjJvLq6OTRU1i53E8yoB60pu', '2015-10-24 17:46:09', '2015-10-24 17:46:09')[0m
+  [1m[35m (73.7ms)[0m  COMMIT
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from create at /home/akash/rails/practice/app/controllers/users_controller.rb:32)
+  Rendered user_mailer/signup_confirmation.html.erb within layouts/mailer (0.6ms)
+  Rendered user_mailer/signup_confirmation.text.erb within layouts/mailer (0.3ms)
+
+UserMailer#signup_confirmation: processed outbound mail in 177.7ms
+
+Sent mail to aakash.pinnaka@gmail.com (23.1ms)
+Date: Sat, 24 Oct 2015 23:16:10 +0530
+From: developer@notebook.com
+To: aakash.pinnaka@gmail.com
+Message-ID: <562bc3e23b93d_77bd3fa2d4d4031c821ed@akash.mail>
+Subject: Signup confirmation for Notebook
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_562bc3e2369e9_77bd3fa2d4d4031c8207b";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_562bc3e2369e9_77bd3fa2d4d4031c8207b
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+UserMailer#signup_confirmation
+
+, find me in app/views/user_mailer/signup_confirmation.text.erb
+
+
+----==_mimepart_562bc3e2369e9_77bd3fa2d4d4031c8207b
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <h1>Thank <font color = "#f00">akashpinnaka</font> for signing up to <b>Notebook</b></h1>
+
+  </body>
+</html>
+
+----==_mimepart_562bc3e2369e9_77bd3fa2d4d4031c8207b--
+
+Redirected to http://localhost:3000/notes
+Completed 302 Found in 378ms (ActiveRecord: 74.8ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-24 23:16:10 +0530
+Processing by NotesController#index as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-24 23:16:10 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (0.4ms)
+Completed 200 OK in 25ms (Views: 23.9ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  `users`.* FROM `users`  ORDER BY `users`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mNote Load (0.5ms)[0m  [1mSELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 4[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM `users` WHERE `users`.`id` = 4
+  [1m[36m (35.1ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-10-24 23:18:48 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/users (192.4ms)
+Completed 200 OK in 267ms (Views: 231.7ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-10-24 23:19:26 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IoSQx3k2RBZtJ5EMBIOoMOq/SLX9a+PH7aoHUlYWEWybVeX3WginCw1qQABAoiPVsdXtixfyXYhESs0vDDrBpQ==", "user"=>{"first_name"=>"Akash", "last_name"=>"Pinnaka", "username"=>"akashpinnaka", "email"=>"aakash.pinnaka@gmail.com", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x007fcd89fb6c70 @tempfile=#<Tempfile:/tmp/RackMultipart20151024-31506-1gkjdm.png>, @original_filename="Screenshot from 2015-10-24 17:19:50.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[profile_picture]\"; filename=\"Screenshot from 2015-10-24 17:19:50.png\"\r\nContent-Type: image/png\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151024-31506-1c2fs9y.png'
+  [1m[35m (0.2ms)[0m  BEGIN
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151024-31506-1q33qsp.png'
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'akashpinnaka' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'aakash.pinnaka@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`first_name`, `last_name`, `username`, `email`, `password_digest`, `profile_picture_file_name`, `profile_picture_content_type`, `profile_picture_file_size`, `profile_picture_updated_at`, `created_at`, `updated_at`) VALUES ('Akash', 'Pinnaka', 'akashpinnaka', 'aakash.pinnaka@gmail.com', '$2a$10$hm1HfVqGRqQ2OpbJycot4.YLdie4tvIgXTpBE7S7zEIvWP.J1dTlm', 'Screenshot_from_2015-10-24_17_19_50.png', 'image/png', 369146, '2015-10-24 17:49:26', '2015-10-24 17:49:26', '2015-10-24 17:49:26')[0m
+  [1m[35m (71.4ms)[0m  COMMIT
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from create at /home/akash/rails/practice/app/controllers/users_controller.rb:32)
+  Rendered user_mailer/signup_confirmation.html.erb within layouts/mailer (0.4ms)
+  Rendered user_mailer/signup_confirmation.text.erb within layouts/mailer (0.5ms)
+
+UserMailer#signup_confirmation: processed outbound mail in 234.8ms
+
+Sent mail to aakash.pinnaka@gmail.com (2598.3ms)
+Date: Sat, 24 Oct 2015 23:19:26 +0530
+From: developer@notebook.com
+To: aakash.pinnaka@gmail.com
+Message-ID: <562bc4a6eafcd_7b123fe6c4eb517833640@akash.mail>
+Subject: Signup confirmation for Notebook
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_562bc4a6e9577_7b123fe6c4eb5178335f0";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_562bc4a6e9577_7b123fe6c4eb5178335f0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+UserMailer#signup_confirmation
+
+, find me in app/views/user_mailer/signup_confirmation.text.erb
+
+
+----==_mimepart_562bc4a6e9577_7b123fe6c4eb5178335f0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <h1>Thank <font color = "#f00">akashpinnaka</font> for signing up to <b>Notebook</b></h1>
+
+  </body>
+</html>
+
+----==_mimepart_562bc4a6e9577_7b123fe6c4eb5178335f0--
+
+Completed 500 Internal Server Error in 3055ms (ActiveRecord: 72.6ms)
+
+Net::SMTPAuthenticationError (530-5.5.1 Authentication Required. Learn more at
+):
+  app/controllers/users_controller.rb:32:in `create'
+
+
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.4ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (26.0ms)
+Cannot render console with content type multipart/form-dataAllowed content types: [#<Mime::Type:0x007fcd9791d4c8 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007fcd9791d1f8 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007fcd9792b280 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+  [1m[35mUser Load (0.9ms)[0m  SELECT `users`.* FROM `users`
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users`  ORDER BY `users`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mNote Load (0.5ms)[0m  [1mSELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 5[0m
+  [1m[35mSQL (0.6ms)[0m  DELETE FROM `users` WHERE `users`.`id` = 5
+  [1m[36m (63.8ms)[0m  [1mCOMMIT[0m
+[paperclip] deleting /home/akash/rails/practice/public/system/users/profile_pictures/000/000/005/original/Screenshot_from_2015-10-24_17_19_50.png
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users`
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-25 00:01:44 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (1.9ms)
+Completed 200 OK in 223ms (Views: 208.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-10-25 00:01:47 +0530
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/users (33.3ms)
+Completed 200 OK in 100ms (Views: 78.2ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-10-25 00:02:25 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sgh57KDZ/8zjK+EDK9KKCzQQQvfw6SiLOmwoOjRCYrsL2Qzcg+cc0YNmMA9v8wHub3rnyRpwlsSTjOJHbm6ycg==", "user"=>{"first_name"=>"Akash", "last_name"=>"Pinnaka", "username"=>"akashpinnaka", "email"=>"aakash.pinnaka@gmail.com", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x007f0e26223e50 @tempfile=#<Tempfile:/tmp/RackMultipart20151025-4032-nq4g8e.png>, @original_filename="Screenshot from 2015-10-24 17:19:50.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[profile_picture]\"; filename=\"Screenshot from 2015-10-24 17:19:50.png\"\r\nContent-Type: image/png\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151025-4032-6wwla9.png'
+  [1m[35m (0.2ms)[0m  BEGIN
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151025-4032-16ro39i.png'
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'akashpinnaka' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'aakash.pinnaka@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`first_name`, `last_name`, `username`, `email`, `password_digest`, `profile_picture_file_name`, `profile_picture_content_type`, `profile_picture_file_size`, `profile_picture_updated_at`, `created_at`, `updated_at`) VALUES ('Akash', 'Pinnaka', 'akashpinnaka', 'aakash.pinnaka@gmail.com', '$2a$10$lMwHr0HIPMtMfxz2pc8b...FeLSgG.pr0TfeKkV/CvA5TPSG5Cz7y', 'Screenshot_from_2015-10-24_17_19_50.png', 'image/png', 369146, '2015-10-24 18:32:25', '2015-10-24 18:32:25', '2015-10-24 18:32:25')[0m
+  [1m[35m (50.1ms)[0m  COMMIT
+  Rendered user_mailer/signup_confirmation.html.erb within layouts/mailer (229.2ms)
+
+UserMailer#signup_confirmation: processed outbound mail in 237.6ms
+Completed 500 Internal Server Error in 473ms (ActiveRecord: 50.9ms)
+
+ActionView::Template::Error (undefined local variable or method `user' for #<#<Class:0x007f0e25dd0b50>:0x007f0e25dd0150>):
+    1: <h1>Thank you <%= user.username %> for signing up for <b>Notebook</b></h1>
+  app/views/user_mailer/signup_confirmation.html.erb:1:in `_app_views_user_mailer_signup_confirmation_html_erb__83301773628701921_69849370757980'
+  app/mailers/user_mailer.rb:10:in `signup_confirmation'
+  app/controllers/users_controller.rb:32:in `create'
+
+
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.2ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (25.8ms)
+Cannot render console with content type multipart/form-dataAllowed content types: [#<Mime::Type:0x007f0e3478d338 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007f0e3478d068 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007f0e3479ad80 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  `users`.* FROM `users`  ORDER BY `users`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mNote Load (0.5ms)[0m  [1mSELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 6[0m
+  [1m[35mSQL (0.6ms)[0m  DELETE FROM `users` WHERE `users`.`id` = 6
+  [1m[36m (402.1ms)[0m  [1mCOMMIT[0m
+[paperclip] deleting /home/akash/rails/practice/public/system/users/profile_pictures/000/000/006/original/Screenshot_from_2015-10-24_17_19_50.png
+
+
+Started GET "/users/create" for 127.0.0.1 at 2015-10-25 00:04:05 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by UsersController#create as HTML
+Completed 400 Bad Request in 15ms (ActiveRecord: 0.0ms)
+
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  app/controllers/users_controller.rb:99:in `user_params'
+  app/controllers/users_controller.rb:30:in `create'
+
+
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.9ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.4ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (18.9ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (55.3ms)
+
+
+Started GET "/users/create" for 127.0.0.1 at 2015-10-25 00:29:59 +0530
+Processing by UsersController#create as HTML
+Completed 400 Bad Request in 6ms (ActiveRecord: 0.0ms)
+
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  app/controllers/users_controller.rb:99:in `user_params'
+  app/controllers/users_controller.rb:30:in `create'
+
+
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.7ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (26.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (17.1ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (34.9ms)
+
+
+Started GET "/users/create" for 127.0.0.1 at 2015-10-25 00:30:01 +0530
+Processing by UsersController#create as HTML
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.0ms)
+
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  app/controllers/users_controller.rb:99:in `user_params'
+  app/controllers/users_controller.rb:30:in `create'
+
+
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.8ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (20.5ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (15.5ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (30.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-25 00:30:24 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (1.7ms)
+Completed 200 OK in 173ms (Views: 172.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-10-25 00:30:27 +0530
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/users (32.7ms)
+Completed 200 OK in 105ms (Views: 69.2ms | ActiveRecord: 18.0ms)
+  [1m[35mUser Load (14.1ms)[0m  SELECT `users`.* FROM `users`
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-10-25 00:31:14 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NR55Kk2DTgvnlLWEaODaSdWoFqH+du65XfzsCRYScZGMzwwabr2tFofZZIgswVGsjsKznxTvUPb0HCZ0TD6hWA==", "user"=>{"first_name"=>"Akash", "last_name"=>"Pinnaka", "username"=>"akashpinnaka", "email"=>"aakash.pinnaka@gmail.com", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x007fce1636f1f0 @tempfile=#<Tempfile:/tmp/RackMultipart20151025-4168-gykhuu.png>, @original_filename="Screenshot from 2015-10-24 17:19:50.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[profile_picture]\"; filename=\"Screenshot from 2015-10-24 17:19:50.png\"\r\nContent-Type: image/png\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151025-4168-imrx5l.png'
+  [1m[35m (0.1ms)[0m  BEGIN
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151025-4168-1496ae6.png'
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'akashpinnaka' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'aakash.pinnaka@gmail.com' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `users` (`first_name`, `last_name`, `username`, `email`, `password_digest`, `profile_picture_file_name`, `profile_picture_content_type`, `profile_picture_file_size`, `profile_picture_updated_at`, `created_at`, `updated_at`) VALUES ('Akash', 'Pinnaka', 'akashpinnaka', 'aakash.pinnaka@gmail.com', '$2a$10$aMcTNBEujRUJ8.mpdaKKveZocWo3w.NmJ5ZH/hvRxO1HRGgkkn2fW', 'Screenshot_from_2015-10-24_17_19_50.png', 'image/png', 369146, '2015-10-24 19:01:14', '2015-10-24 19:01:14', '2015-10-24 19:01:14')[0m
+  [1m[35m (106.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/notes
+Completed 302 Found in 298ms (ActiveRecord: 107.4ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-25 00:31:14 +0530
+Processing by NotesController#index as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-25 00:31:14 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (0.6ms)
+Completed 200 OK in 39ms (Views: 38.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/attempt_login" for 127.0.0.1 at 2015-10-25 00:31:27 +0530
+Processing by UsersController#attempt_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jUoQ+JrrYMMhuH/lo3SDMOWmUIufuI1/RqsT6mqAxxU0m2XIudWD3kH1runnVQjVvsz1tXUhMzDvS9mXMKwX3A==", "email"=>"aakash.pinnaka@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (79.9ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'aakash.pinnaka@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered users/index.html.erb within layouts/users (0.4ms)
+Completed 200 OK in 265ms (Views: 51.6ms | ActiveRecord: 79.9ms)
+
+
+Started POST "/users/attempt_login" for 127.0.0.1 at 2015-10-25 00:31:34 +0530
+Processing by UsersController#attempt_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5gFz95YHrTx9pdyffeBCWP9EeYovRnujD2nM5MdFdcdf0AbHtTlOIR3oDZM5wcm9pC7ctMXfxeymiQaZnWmlDg==", "email"=>"aakash.pinnaka@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'aakash.pinnaka@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1
+Redirected to http://localhost:3000/notes
+Completed 302 Found in 121ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-25 00:31:34 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  [1m[35mNote Load (1.6ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 7  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (6.0ms)
+Completed 200 OK in 187ms (Views: 167.2ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/users/show/7" for 127.0.0.1 at 2015-10-25 00:31:37 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+  Rendered users/show.html.erb within layouts/notes (2.6ms)
+Completed 200 OK in 102ms (Views: 99.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/edit/7" for 127.0.0.1 at 2015-10-25 00:31:43 +0530
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+  Rendered users/edit.html.erb within layouts/notes (8.3ms)
+Completed 200 OK in 90ms (Views: 87.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/update/7" for 127.0.0.1 at 2015-10-25 00:31:52 +0530
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UBiEjupzy9CgcA4PqBd1QUpmRJVLUDvNK2ywmjHtUMfpyfG+yU0ozcA93wPsNv6kEQzhq6HJhYKCjHrna8GADg==", "user"=>{"first_name"=>"Akash", "last_name"=>"Pinnaka", "username"=>"akashpinnaka", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x007fce082f92b0 @tempfile=#<Tempfile:/tmp/RackMultipart20151025-4168-wdiyy3.png>, @original_filename="Screenshot from 2015-10-24 15:07:29.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[profile_picture]\"; filename=\"Screenshot from 2015-10-24 15:07:29.png\"\r\nContent-Type: image/png\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Update", "id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Command :: file -b --mime '/tmp/bb71ca95c19e1c7e1cd9f60a95e4606320151025-4168-1n0hno3.png'
+Command :: file -b --mime '/tmp/bb71ca95c19e1c7e1cd9f60a95e4606320151025-4168-1h0em7j.png'
+  [1m[36mUser Exists (200.1ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE (`users`.`username` = BINARY 'akashpinnaka' AND `users`.`id` != 7) LIMIT 1[0m
+  [1m[35mUser Exists (0.8ms)[0m  SELECT  1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'aakash.pinnaka@gmail.com' AND `users`.`id` != 7) LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  Rendered users/edit.html.erb within layouts/users (13.8ms)
+Completed 200 OK in 307ms (Views: 72.5ms | ActiveRecord: 201.5ms)
+
+
+Started POST "/users/update/7" for 127.0.0.1 at 2015-10-25 00:32:04 +0530
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"t4SDKpbjFxkU9UJzr6I/Ws+ArCYjbXNCLQSKsTMm/M4OVfYatd30BHS4k3/rg7S/lOoJGMn0zQ2E5EDMaQosBw==", "user"=>{"first_name"=>"Akash", "last_name"=>"Pinnaka", "username"=>"akashpinnaka", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Update", "id"=>"7"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users` WHERE (`users`.`username` = BINARY 'akashpinnaka' AND `users`.`id` != 7) LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'aakash.pinnaka@gmail.com' AND `users`.`id` != 7) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  Rendered users/edit.html.erb within layouts/users (3.2ms)
+Completed 200 OK in 47ms (Views: 37.9ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users/update/7" for 127.0.0.1 at 2015-10-25 00:32:43 +0530
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"85kMNfQN+8mKyKJNMPdKxw+U0aG6VEZq1sgmYjQOd21KSHkF1zMY1OqFc0F01sEiVP50n1DN+CV/KOwfbiKnpA==", "user"=>{"first_name"=>"Akash", "last_name"=>"Pinnaka", "username"=>"akashpinnaka", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x007fce1642ed98 @tempfile=#<Tempfile:/tmp/RackMultipart20151025-4168-36ox5h.png>, @original_filename="Screenshot from 2015-10-24 15:07:29.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[profile_picture]\"; filename=\"Screenshot from 2015-10-24 15:07:29.png\"\r\nContent-Type: image/png\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Update", "id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Command :: file -b --mime '/tmp/bb71ca95c19e1c7e1cd9f60a95e4606320151025-4168-zmlm0c.png'
+Command :: file -b --mime '/tmp/bb71ca95c19e1c7e1cd9f60a95e4606320151025-4168-1txe27v.png'
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE (`users`.`username` = BINARY 'akashpinnaka' AND `users`.`id` != 7) LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'aakash.pinnaka@gmail.com' AND `users`.`id` != 7) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  Rendered users/edit.html.erb within layouts/users (3.6ms)
+Completed 200 OK in 61ms (Views: 38.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/show/7" for 127.0.0.1 at 2015-10-25 00:33:21 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  Rendered users/show.html.erb within layouts/notes (1.7ms)
+Completed 200 OK in 33ms (Views: 30.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/edit/7" for 127.0.0.1 at 2015-10-25 00:33:23 +0530
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  Rendered users/edit.html.erb within layouts/notes (4.8ms)
+Completed 200 OK in 57ms (Views: 54.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/update/7" for 127.0.0.1 at 2015-10-25 00:33:37 +0530
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/17YXXvAyqis2B1FkWADu+KJUbaFgdVLtUyrGDbwQM9Gj61tWP4ptcyVzEnVQYheueP0iG8YawQcrGFlbNyQBg==", "user"=>{"first_name"=>"Akash", "last_name"=>"Pinnaka", "username"=>"pinnakaakash", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Update", "id"=>"7"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE (`users`.`username` = BINARY 'pinnakaakash' AND `users`.`id` != 7) LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'aakash.pinnaka@gmail.com' AND `users`.`id` != 7) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  Rendered users/edit.html.erb within layouts/users (4.3ms)
+Completed 200 OK in 52ms (Views: 43.5ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users/update/7" for 127.0.0.1 at 2015-10-25 00:34:07 +0530
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4JlgPKQ84UjFPvKO1ScZ7LCKvXX3wBIhqrP7yvIiEY1ZSBUMhwICVaVzI4KRBpIJ6+AYSx1ZrG4DUzG3qA7BRA==", "user"=>{"first_name"=>"Akash", "last_name"=>"Pinnaka", "username"=>"pinnakaakash", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Update", "id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE (`users`.`username` = BINARY 'pinnakaakash' AND `users`.`id` != 7) LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'aakash.pinnaka@gmail.com' AND `users`.`id` != 7) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  Rendered users/edit.html.erb within layouts/users (3.9ms)
+Completed 200 OK in 49ms (Views: 40.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-10-25 00:37:54 +0530
+Processing by UsersController#index as HTML
+Redirected to http://localhost:3000/notes
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-25 00:37:55 +0530
+Processing by NotesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+  [1m[36mNote Load (0.2ms)[0m  [1mSELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 7  ORDER BY created_at DESC[0m
+  Rendered notes/index.html.erb within layouts/notes (2.0ms)
+Completed 200 OK in 38ms (Views: 35.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/show/7" for 127.0.0.1 at 2015-10-25 00:38:04 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  Rendered users/show.html.erb within layouts/notes (1.2ms)
+Completed 200 OK in 58ms (Views: 55.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/edit/7" for 127.0.0.1 at 2015-10-25 00:38:06 +0530
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  Rendered users/edit.html.erb within layouts/notes (4.2ms)
+Completed 200 OK in 48ms (Views: 46.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/update/7" for 127.0.0.1 at 2015-10-25 00:39:11 +0530
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"u2++OtMHMZGH+NUxV7Lu1xehYoW5NZnzHfAQKZKOqgICvssK8DnSjOe1BD0Tk2UyTMvHu1OsJ7y0ENpUyKJ6yw==", "user"=>{"first_name"=>"Akash", "last_name"=>"Pinnaka", "username"=>"akashpinnaka", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Update", "id"=>"7"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users` WHERE (`users`.`username` = BINARY 'akashpinnaka' AND `users`.`id` != 7) LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'aakash.pinnaka@gmail.com' AND `users`.`id` != 7) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  Rendered users/show.html.erb within layouts/users (0.8ms)
+Completed 200 OK in 49ms (Views: 27.0ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/users/edit/7" for 127.0.0.1 at 2015-10-25 00:39:15 +0530
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+  Rendered users/edit.html.erb within layouts/notes (2.4ms)
+Completed 200 OK in 38ms (Views: 36.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/edit/7" for 127.0.0.1 at 2015-10-25 00:39:52 +0530
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+  Rendered users/edit.html.erb within layouts/notes (4.1ms)
+Completed 200 OK in 62ms (Views: 40.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/notes.self-b53f504812c0007d1f6d5555a922d7125180a4a7229c6176b83d02b90d1476d5.css?body=1" for 127.0.0.1 at 2015-10-25 00:39:52 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-25 00:39:52 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-25 00:39:52 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-25 00:39:52 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-25 00:39:52 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-25 00:39:52 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-25 00:39:52 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-25 00:39:52 +0530
+
+
+Started POST "/users/update/7" for 127.0.0.1 at 2015-10-25 00:40:10 +0530
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XDJ5mTQaRsX+LzIZloDw3xYheLqe7TYIbQhd4z6qVWzl4wypFySl2J5i4xXSoXs6TUvdhHR0iEfE6JeeZIaFpQ==", "user"=>{"first_name"=>"Akash", "last_name"=>"Pinnaka", "username"=>"akashpinnaka", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x007fce15a06c30 @tempfile=#<Tempfile:/tmp/RackMultipart20151025-4168-1kgzaht.png>, @original_filename="Screenshot from 2015-10-24 15:07:29.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[profile_picture]\"; filename=\"Screenshot from 2015-10-24 15:07:29.png\"\r\nContent-Type: image/png\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Update", "id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Command :: file -b --mime '/tmp/bb71ca95c19e1c7e1cd9f60a95e4606320151025-4168-2ohbjx.png'
+Command :: file -b --mime '/tmp/bb71ca95c19e1c7e1cd9f60a95e4606320151025-4168-uz1bj7.png'
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE (`users`.`username` = BINARY 'akashpinnaka' AND `users`.`id` != 7) LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'aakash.pinnaka@gmail.com' AND `users`.`id` != 7) LIMIT 1
+  [1m[36mSQL (109.0ms)[0m  [1mUPDATE `users` SET `password_digest` = '$2a$10$6xy5blVzh5YUDTnsz0.VrOyedB146ySOUuIdWV11SpIXtVQRZ9vuO', `profile_picture_file_name` = 'Screenshot_from_2015-10-24_15_07_29.png', `profile_picture_file_size` = 176049, `profile_picture_updated_at` = '2015-10-24 19:10:10', `updated_at` = '2015-10-24 19:10:10' WHERE `users`.`id` = 7[0m
+[paperclip] deleting /home/akash/rails/practice/public/system/users/profile_pictures/000/000/007/original/Screenshot_from_2015-10-24_17_19_50.png
+  [1m[35m (88.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/show/7
+Completed 302 Found in 417ms (ActiveRecord: 198.2ms)
+
+
+Started GET "/users/show/7" for 127.0.0.1 at 2015-10-25 00:40:11 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+  Rendered users/show.html.erb within layouts/notes (1.1ms)
+Completed 200 OK in 54ms (Views: 50.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/edit/7" for 127.0.0.1 at 2015-10-25 00:40:14 +0530
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+  Rendered users/edit.html.erb within layouts/notes (5.0ms)
+Completed 200 OK in 46ms (Views: 42.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/show/7" for 127.0.0.1 at 2015-10-25 00:42:24 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+  Rendered users/show.html.erb within layouts/notes (1.0ms)
+Completed 200 OK in 61ms (Views: 37.8ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-25 00:42:28 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  [1m[35mNote Load (0.3ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 7  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (5.2ms)
+Completed 200 OK in 86ms (Views: 75.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-25 00:42:36 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  [1m[35mNote Load (0.3ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 7  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (2.6ms)
+Completed 200 OK in 49ms (Views: 45.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/notes.self-b53f504812c0007d1f6d5555a922d7125180a4a7229c6176b83d02b90d1476d5.css?body=1" for 127.0.0.1 at 2015-10-25 00:42:36 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-25 00:42:36 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-25 00:42:36 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-25 00:42:36 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-25 00:42:36 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-25 00:42:36 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-25 00:42:36 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-25 00:42:36 +0530
+
+
+Started GET "/users/show/7" for 127.0.0.1 at 2015-10-25 00:42:43 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+  Rendered users/show.html.erb within layouts/notes (1.6ms)
+Completed 200 OK in 75ms (Views: 71.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/edit/7" for 127.0.0.1 at 2015-10-25 00:42:45 +0530
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+  Rendered users/edit.html.erb within layouts/notes (3.8ms)
+Completed 200 OK in 51ms (Views: 48.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/show/7" for 127.0.0.1 at 2015-10-25 00:42:57 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+  Rendered users/show.html.erb within layouts/notes (1.0ms)
+Completed 200 OK in 57ms (Views: 37.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/edit/7" for 127.0.0.1 at 2015-10-25 00:42:59 +0530
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+  Rendered users/edit.html.erb within layouts/notes (5.6ms)
+Completed 200 OK in 57ms (Views: 53.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/update/7" for 127.0.0.1 at 2015-10-25 00:43:07 +0530
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"avtLupH0fz3pkdlq1T3IJicFhMIoVUEnuaodY7WJck3TKj6KssqcIIncCGaRHEPDfG8h/MLM/2gQStce76WihA==", "user"=>{"first_name"=>"Akash", "last_name"=>"Pinnaka", "username"=>"akashpinnaka", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x007fce15dba3e0 @tempfile=#<Tempfile:/tmp/RackMultipart20151025-4168-rlnuiq.png>, @original_filename="Screenshot from 2015-10-24 17:19:50.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[profile_picture]\"; filename=\"Screenshot from 2015-10-24 17:19:50.png\"\r\nContent-Type: image/png\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Update", "id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151025-4168-12w6ugn.png'
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151025-4168-1fri2m0.png'
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE (`users`.`username` = BINARY 'akashpinnaka' AND `users`.`id` != 7) LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'aakash.pinnaka@gmail.com' AND `users`.`id` != 7) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+Redirected to http://localhost:3000/users/edit/7
+Completed 302 Found in 25ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/users/edit/7" for 127.0.0.1 at 2015-10-25 00:43:07 +0530
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  Rendered users/edit.html.erb within layouts/notes (3.5ms)
+Completed 200 OK in 42ms (Views: 40.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/update/7" for 127.0.0.1 at 2015-10-25 00:43:10 +0530
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AsUadLUs7HdDIe0y9fN2tsWHIVqVr1u79SpL48rOPcy7FG9ElhIPaiNsPD6x0v1Tnu2EZH825fRcyoGekOLtBQ==", "user"=>{"first_name"=>"Akash", "last_name"=>"Pinnaka", "username"=>"akashpinnaka", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Update", "id"=>"7"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users` WHERE (`users`.`username` = BINARY 'akashpinnaka' AND `users`.`id` != 7) LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE (`users`.`email` = BINARY 'aakash.pinnaka@gmail.com' AND `users`.`id` != 7) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+Redirected to http://localhost:3000/users/edit/7
+Completed 302 Found in 9ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/users/edit/7" for 127.0.0.1 at 2015-10-25 00:43:10 +0530
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+  Rendered users/edit.html.erb within layouts/notes (3.1ms)
+Completed 200 OK in 48ms (Views: 46.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/edit/7" for 127.0.0.1 at 2015-10-25 00:44:20 +0530
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"7"}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+ArgumentError (Unknown validator: 'ScopeValidator'):
+  app/models/user.rb:13:in `<class:User>'
+  app/models/user.rb:1:in `<top (required)>'
+  app/controllers/users_controller.rb:42:in `edit'
+
+
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.7ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.9ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (14.5ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (29.5ms)
+
+
+Started GET "/users/edit/7" for 127.0.0.1 at 2015-10-25 00:44:35 +0530
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"7"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/home/akash/rails/practice/app/models/user.rb:13: syntax error, unexpected '\n', expecting =>):
+  app/models/user.rb:13: syntax error, unexpected '\n', expecting =>
+  app/controllers/users_controller.rb:42:in `edit'
+
+
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.5ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.9ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (14.7ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (29.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-25 01:46:24 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms)
+
+ArgumentError (Unknown validator: 'ScopeValidator'):
+  app/models/user.rb:13:in `<class:User>'
+  app/models/user.rb:1:in `<top (required)>'
+  app/controllers/users_controller.rb:8:in `index'
+
+
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (18.9ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.6ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (52.2ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (20.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (44.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-25 01:46:59 +0530
+Processing by UsersController#index as HTML
+Redirected to http://localhost:3000/notes
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-25 01:46:59 +0530
+Processing by NotesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+  [1m[36mNote Load (0.2ms)[0m  [1mSELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 7  ORDER BY created_at DESC[0m
+  Rendered notes/index.html.erb within layouts/notes (2.5ms)
+Completed 200 OK in 238ms (Views: 205.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/notes.self-b53f504812c0007d1f6d5555a922d7125180a4a7229c6176b83d02b90d1476d5.css?body=1" for 127.0.0.1 at 2015-10-25 01:47:00 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-25 01:47:00 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-25 01:47:00 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-25 01:47:00 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-25 01:47:00 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-25 01:47:00 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-25 01:47:00 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-25 01:47:00 +0530
+
+
+Started GET "/users/logout" for 127.0.0.1 at 2015-10-25 01:47:03 +0530
+Processing by UsersController#logout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-25 01:47:03 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (1.8ms)
+Completed 200 OK in 46ms (Views: 44.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/logout" for 127.0.0.1 at 2015-10-25 01:47:03 +0530
+Processing by UsersController#logout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-25 01:47:03 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (2.0ms)
+Completed 200 OK in 66ms (Views: 64.2ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  `users`.* FROM `users`  ORDER BY `users`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mNote Load (0.7ms)[0m  [1mSELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 7[0m
+  [1m[35mSQL (0.7ms)[0m  DELETE FROM `users` WHERE `users`.`id` = 7
+  [1m[36m (79.4ms)[0m  [1mCOMMIT[0m
+[paperclip] deleting /home/akash/rails/practice/public/system/users/profile_pictures/000/000/007/original/Screenshot_from_2015-10-24_15_07_29.png
+  [1m[35mUser Load (0.8ms)[0m  SELECT `users`.* FROM `users`
+
+
+Started POST "/users/attempt_login" for 127.0.0.1 at 2015-10-25 01:48:00 +0530
+Processing by UsersController#attempt_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OjH9Vwq/eVoDvxyOEV+hpc6fOZlxCP31zApKXpO5ysOD4IhnKYGaR2PyzYJVfipAlfWcp5uRQ7pl6oAjyZUaCg==", "email"=>"aakash.pinnaka@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'aakash.pinnaka@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered users/index.html.erb within layouts/users (1.8ms)
+Completed 200 OK in 67ms (Views: 62.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-10-25 01:48:02 +0530
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/users (22.3ms)
+Completed 200 OK in 49ms (Views: 47.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-10-25 01:48:29 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aCsVStCBB+Awefay+IPYw4pSfqsWsq+Pl8ZwwQDmoXHR+mB687/k/VA0J768olMm0TjblfwrEcA+Jrq8WspxuA==", "user"=>{"first_name"=>"Akash", "last_name"=>"Pinnaka", "username"=>"akashpinnaka", "email"=>"aakash.pinnaka@gmail.com", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x007f3c00a17190 @tempfile=#<Tempfile:/tmp/RackMultipart20151025-6020-15bn36.png>, @original_filename="Screenshot from 2015-10-24 17:19:50.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[profile_picture]\"; filename=\"Screenshot from 2015-10-24 17:19:50.png\"\r\nContent-Type: image/png\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151025-6020-16jssqy.png'
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151025-6020-rfe819.png'
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'akashpinnaka' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'aakash.pinnaka@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`first_name`, `last_name`, `username`, `email`, `password_digest`, `profile_picture_file_name`, `profile_picture_content_type`, `profile_picture_file_size`, `profile_picture_updated_at`, `created_at`, `updated_at`) VALUES ('Akash', 'Pinnaka', 'akashpinnaka', 'aakash.pinnaka@gmail.com', '$2a$10$xN2TXkAxT9XXpka/H7tQ8Oy0ra9ybDD/VZ9A1xxJbIRQc15oxETWy', 'Screenshot_from_2015-10-24_17_19_50.png', 'image/png', 369146, '2015-10-24 20:18:29', '2015-10-24 20:18:29', '2015-10-24 20:18:29')
+  [1m[36m (116.8ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 270ms (ActiveRecord: 117.8ms)
+
+SyntaxError (/home/akash/rails/practice/app/mailers/user_mailer.rb:4: syntax error, unexpected tCONSTANT, expecting keyword_do or '{' or '('
+...m",subject: Signup Confirmation)
+...                               ^):
+  app/mailers/user_mailer.rb:4: syntax error, unexpected tCONSTANT, expecting keyword_do or '{' or '('
+  app/controllers/users_controller.rb:32:in `create'
+
+
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (23.6ms)
+Cannot render console with content type multipart/form-dataAllowed content types: [#<Mime::Type:0x007f3c2f0990a8 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007f3c2f098dd8 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007f3c2f0a6bb8 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  `users`.* FROM `users`  ORDER BY `users`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mNote Load (0.5ms)[0m  [1mSELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 8[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM `users` WHERE `users`.`id` = 8
+  [1m[36m (49.4ms)[0m  [1mCOMMIT[0m
+[paperclip] deleting /home/akash/rails/practice/public/system/users/profile_pictures/000/000/008/original/Screenshot_from_2015-10-24_17_19_50.png
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users`
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-25 01:49:23 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (0.5ms)
+Completed 200 OK in 33ms (Views: 32.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-10-25 01:49:26 +0530
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/users (10.1ms)
+Completed 200 OK in 49ms (Views: 48.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-10-25 01:49:59 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zvI31Et11jGcu2z56eNOEnow6QHbn6RHLY8XTbqBlJp3I0LkaEs1LPz2vfWtwsX3IVpMPzEGGgiEb90w4K1EUw==", "user"=>{"first_name"=>"Akash", "last_name"=>"Pinnaka", "username"=>"akashpinnaka", "email"=>"aakash.pinnaka@gmail.com", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x007f3c2eda1850 @tempfile=#<Tempfile:/tmp/RackMultipart20151025-6020-1ebs54y.png>, @original_filename="Screenshot from 2015-10-24 17:19:50.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[profile_picture]\"; filename=\"Screenshot from 2015-10-24 17:19:50.png\"\r\nContent-Type: image/png\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151025-6020-v66ob3.png'
+  [1m[35m (0.2ms)[0m  BEGIN
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151025-6020-kgorb7.png'
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'akashpinnaka' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'aakash.pinnaka@gmail.com' LIMIT 1
+  [1m[36mSQL (19.0ms)[0m  [1mINSERT INTO `users` (`first_name`, `last_name`, `username`, `email`, `password_digest`, `profile_picture_file_name`, `profile_picture_content_type`, `profile_picture_file_size`, `profile_picture_updated_at`, `created_at`, `updated_at`) VALUES ('Akash', 'Pinnaka', 'akashpinnaka', 'aakash.pinnaka@gmail.com', '$2a$10$tjXESflip0YROg3RoEPRSuDxgMZaDHlrhahnWcPbKGH78hslSZrTG', 'Screenshot_from_2015-10-24_17_19_50.png', 'image/png', 369146, '2015-10-24 20:19:59', '2015-10-24 20:19:59', '2015-10-24 20:19:59')[0m
+  [1m[35m (91.6ms)[0m  COMMIT
+Completed 500 Internal Server Error in 262ms (ActiveRecord: 111.7ms)
+
+SyntaxError (/home/akash/rails/practice/app/mailers/user_mailer.rb:4: syntax error, unexpected tCONSTANT, expecting keyword_do or '{' or '('
+...m",subject: Signup Confirmation)
+...                               ^):
+  app/mailers/user_mailer.rb:4: syntax error, unexpected tCONSTANT, expecting keyword_do or '{' or '('
+  app/controllers/users_controller.rb:32:in `create'
+
+
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.2ms)
+Cannot render console with content type multipart/form-dataAllowed content types: [#<Mime::Type:0x007f3c2f0990a8 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007f3c2f098dd8 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007f3c2f0a6bb8 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users`  ORDER BY `users`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mNote Load (0.5ms)[0m  [1mSELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 9[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM `users` WHERE `users`.`id` = 9
+  [1m[36m (51.4ms)[0m  [1mCOMMIT[0m
+[paperclip] deleting /home/akash/rails/practice/public/system/users/profile_pictures/000/000/009/original/Screenshot_from_2015-10-24_17_19_50.png
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users`
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-25 01:50:37 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (2.0ms)
+Completed 200 OK in 236ms (Views: 223.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-25 01:50:37 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (0.4ms)
+Completed 200 OK in 30ms (Views: 29.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-10-25 01:50:39 +0530
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/users (29.8ms)
+Completed 200 OK in 107ms (Views: 91.5ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-10-25 01:51:17 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FOwUvy9AmjakZ9RKyu7QiCH055cthuWF30Gl2RoXBpytPWGPDH55K8QqBUaOz1ttep5CqccfW8p2oW+kQDvWVQ==", "user"=>{"first_name"=>"Akash", "last_name"=>"Pinnaka", "username"=>"akashpinnaka", "email"=>"aakash.pinnaka@gmail.com", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x007f2f510cc010 @tempfile=#<Tempfile:/tmp/RackMultipart20151025-6253-99hao7.png>, @original_filename="Screenshot from 2015-10-24 17:19:50.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[profile_picture]\"; filename=\"Screenshot from 2015-10-24 17:19:50.png\"\r\nContent-Type: image/png\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151025-6253-12rdvch.png'
+  [1m[35m (0.3ms)[0m  BEGIN
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151025-6253-k3lu6b.png'
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'akashpinnaka' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'aakash.pinnaka@gmail.com' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `users` (`first_name`, `last_name`, `username`, `email`, `password_digest`, `profile_picture_file_name`, `profile_picture_content_type`, `profile_picture_file_size`, `profile_picture_updated_at`, `created_at`, `updated_at`) VALUES ('Akash', 'Pinnaka', 'akashpinnaka', 'aakash.pinnaka@gmail.com', '$2a$10$krqtxuFkg5D2A/HycWEdxO4LC1GKJjCzyK/YWz379TOyu/Px2T9WO', 'Screenshot_from_2015-10-24_17_19_50.png', 'image/png', 369146, '2015-10-24 20:21:17', '2015-10-24 20:21:17', '2015-10-24 20:21:17')[0m
+  [1m[35m (44.2ms)[0m  COMMIT
+Completed 500 Internal Server Error in 210ms (ActiveRecord: 45.8ms)
+
+SyntaxError (/home/akash/rails/practice/app/mailers/user_mailer.rb:4: syntax error, unexpected tCONSTANT, expecting keyword_do or '{' or '('
+...m",subject: Signup Confirmation)
+...                               ^):
+  app/mailers/user_mailer.rb:4: syntax error, unexpected tCONSTANT, expecting keyword_do or '{' or '('
+  app/controllers/users_controller.rb:32:in `create'
+
+
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.9ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.1ms)
+Cannot render console with content type multipart/form-dataAllowed content types: [#<Mime::Type:0x007f2f5f74d408 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007f2f5f74d138 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007f2f5f75b350 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  `users`.* FROM `users`  ORDER BY `users`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mNote Load (0.5ms)[0m  [1mSELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 10[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM `users` WHERE `users`.`id` = 10
+  [1m[36m (52.0ms)[0m  [1mCOMMIT[0m
+[paperclip] deleting /home/akash/rails/practice/public/system/users/profile_pictures/000/000/010/original/Screenshot_from_2015-10-24_17_19_50.png
+  [1m[35mUser Load (0.8ms)[0m  SELECT  `users`.* FROM `users`  ORDER BY `users`.`id` DESC LIMIT 1
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-10-25 01:51:59 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XTEBBmdr8/gvo/pVkmlMJrfAfMJDFzEzay0+nJHHT3/k4HQ2RFUQ5U/uK1nWSMfD7KrZ/KmOj3zCzfThy+uftg==", "user"=>{"first_name"=>"Akash", "last_name"=>"Pinnaka", "username"=>"akashpinnaka", "email"=>"aakash.pinnaka@gmail.com", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x007f2f382ab778 @tempfile=#<Tempfile:/tmp/RackMultipart20151025-6253-1l87wln.png>, @original_filename="Screenshot from 2015-10-24 17:19:50.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[profile_picture]\"; filename=\"Screenshot from 2015-10-24 17:19:50.png\"\r\nContent-Type: image/png\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151025-6253-1ccosqh.png'
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151025-6253-fca2b1.png'
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'akashpinnaka' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'aakash.pinnaka@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`first_name`, `last_name`, `username`, `email`, `password_digest`, `profile_picture_file_name`, `profile_picture_content_type`, `profile_picture_file_size`, `profile_picture_updated_at`, `created_at`, `updated_at`) VALUES ('Akash', 'Pinnaka', 'akashpinnaka', 'aakash.pinnaka@gmail.com', '$2a$10$B63qEwoE970XTrvjuZNhmOCZkqlhwyWC.16iJDB0jujBt0guC4dg6', 'Screenshot_from_2015-10-24_17_19_50.png', 'image/png', 369146, '2015-10-24 20:21:59', '2015-10-24 20:21:59', '2015-10-24 20:21:59')
+  [1m[36m (118.8ms)[0m  [1mCOMMIT[0m
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from create at /home/akash/rails/practice/app/controllers/users_controller.rb:32)
+  Rendered user_mailer/signup_confirmation.html.erb (148.3ms)
+
+UserMailer#signup_confirmation: processed outbound mail in 156.7ms
+Completed 500 Internal Server Error in 436ms (ActiveRecord: 121.0ms)
+
+ActionView::Template::Error (undefined local variable or method `user' for #<#<Class:0x007f2f386508b0>:0x007f2f51a7fcd8>):
+    1: <h1>Thank you <%= user.username %> for signing up at Notebook</h1>
+  app/views/user_mailer/signup_confirmation.html.erb:1:in `_app_views_user_mailer_signup_confirmation_html_erb___632763727230184977_69920393168980'
+  app/mailers/user_mailer.rb:4:in `signup_confirmation'
+  app/controllers/users_controller.rb:32:in `create'
+
+
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.6ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (22.7ms)
+Cannot render console with content type multipart/form-dataAllowed content types: [#<Mime::Type:0x007f2f5f74d408 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007f2f5f74d138 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007f2f5f75b350 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users`
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  `users`.* FROM `users`  ORDER BY `users`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mNote Load (0.5ms)[0m  [1mSELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 11[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM `users` WHERE `users`.`id` = 11
+  [1m[36m (57.0ms)[0m  [1mCOMMIT[0m
+[paperclip] deleting /home/akash/rails/practice/public/system/users/profile_pictures/000/000/011/original/Screenshot_from_2015-10-24_17_19_50.png
+  [1m[35mUser Load (0.8ms)[0m  SELECT  `users`.* FROM `users`  ORDER BY `users`.`id` DESC LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-10-25 01:52:33 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XTEBBmdr8/gvo/pVkmlMJrfAfMJDFzEzay0+nJHHT3/k4HQ2RFUQ5U/uK1nWSMfD7KrZ/KmOj3zCzfThy+uftg==", "user"=>{"first_name"=>"Akash", "last_name"=>"Pinnaka", "username"=>"akashpinnaka", "email"=>"aakash.pinnaka@gmail.com", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x007f2f39ef2878 @tempfile=#<Tempfile:/tmp/RackMultipart20151025-6253-nuriut.png>, @original_filename="Screenshot from 2015-10-24 17:19:50.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[profile_picture]\"; filename=\"Screenshot from 2015-10-24 17:19:50.png\"\r\nContent-Type: image/png\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151025-6253-389eq5.png'
+  [1m[35m (0.3ms)[0m  BEGIN
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151025-6253-x9ob3p.png'
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'akashpinnaka' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'aakash.pinnaka@gmail.com' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO `users` (`first_name`, `last_name`, `username`, `email`, `password_digest`, `profile_picture_file_name`, `profile_picture_content_type`, `profile_picture_file_size`, `profile_picture_updated_at`, `created_at`, `updated_at`) VALUES ('Akash', 'Pinnaka', 'akashpinnaka', 'aakash.pinnaka@gmail.com', '$2a$10$bKmub3mGadNoBlLaWo1FHuOBORaPPW.BMFeBL6SzWh7GicA3I173q', 'Screenshot_from_2015-10-24_17_19_50.png', 'image/png', 369146, '2015-10-24 20:22:33', '2015-10-24 20:22:33', '2015-10-24 20:22:33')[0m
+  [1m[35m (93.2ms)[0m  COMMIT
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from create at /home/akash/rails/practice/app/controllers/users_controller.rb:32)
+  Rendered user_mailer/signup_confirmation.html.erb (0.4ms)
+
+UserMailer#signup_confirmation: processed outbound mail in 8.8ms
+
+Sent mail to aakash.pinnaka@gmail.com (4521.1ms)
+Date: Sun, 25 Oct 2015 01:52:33 +0530
+From: apinnaka609@gmail.com
+To: aakash.pinnaka@gmail.com
+Message-ID: <562be889ce358_186d3f979ce657f878635@akash.mail>
+Subject: Signup Confirmation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h1>Thank you  for signing up at Notebook</h1>
+Redirected to http://localhost:3000/notes
+Completed 302 Found in 4758ms (ActiveRecord: 95.2ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-25 01:52:38 +0530
+Processing by NotesController#index as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-25 01:52:38 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (0.6ms)
+Completed 200 OK in 37ms (Views: 35.9ms | ActiveRecord: 0.0ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT  `users`.* FROM `users`  ORDER BY `users`.`id` DESC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mNote Load (0.4ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 12
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM `users` WHERE `users`.`id` = 12[0m
+  [1m[35m (53.8ms)[0m  COMMIT
+[paperclip] deleting /home/akash/rails/practice/public/system/users/profile_pictures/000/000/012/original/Screenshot_from_2015-10-24_17_19_50.png
+
+
+Started POST "/users/attempt_login" for 127.0.0.1 at 2015-10-25 01:57:31 +0530
+Processing by UsersController#attempt_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2D98AHUjwcoGtT1bMV9cAzYRIxOwARAoLfuqNfTA4XJh7gkwVh0i12b47Fd1ftfmbXuGLVqYrmeEG2BIruwxuw==", "email"=>"aakash.pinnaka@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'aakash.pinnaka@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered users/index.html.erb within layouts/users (0.6ms)
+Completed 200 OK in 49ms (Views: 40.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-10-25 01:57:34 +0530
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/users (11.5ms)
+Completed 200 OK in 70ms (Views: 69.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-10-25 01:58:16 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wX7cui+s4hajkFOD1UW1u2xPxJ+Gqm2OzF8LORTWQw54r6mKDJIBC8Pdgo+RZD5eNyVhoWwz08Flv8FETvqTxw==", "user"=>{"first_name"=>"Akash", "last_name"=>"Pinnaka", "username"=>"akashpinnaka", "email"=>"aakash.pinnaka@gmail.com", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x007f2f39878b50 @tempfile=#<Tempfile:/tmp/RackMultipart20151025-6253-1jh6dn8.png>, @original_filename="Screenshot from 2015-10-24 17:19:50.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[profile_picture]\"; filename=\"Screenshot from 2015-10-24 17:19:50.png\"\r\nContent-Type: image/png\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151025-6253-bahtoq.png'
+  [1m[35m (0.2ms)[0m  BEGIN
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151025-6253-fse6p1.png'
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'akashpinnaka' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'aakash.pinnaka@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`first_name`, `last_name`, `username`, `email`, `password_digest`, `profile_picture_file_name`, `profile_picture_content_type`, `profile_picture_file_size`, `profile_picture_updated_at`, `created_at`, `updated_at`) VALUES ('Akash', 'Pinnaka', 'akashpinnaka', 'aakash.pinnaka@gmail.com', '$2a$10$h.XD1qyTqzGxpxUklo7RMuxqEMJbono6uq29AsYjO8MZDgt1LXKTC', 'Screenshot_from_2015-10-24_17_19_50.png', 'image/png', 369146, '2015-10-24 20:28:16', '2015-10-24 20:28:16', '2015-10-24 20:28:16')[0m
+  [1m[35m (309.0ms)[0m  COMMIT
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from create at /home/akash/rails/practice/app/controllers/users_controller.rb:32)
+  Rendered user_mailer/signup_confirmation.html.erb (5.7ms)
+
+UserMailer#signup_confirmation: processed outbound mail in 18.7ms
+Completed 500 Internal Server Error in 527ms (ActiveRecord: 310.2ms)
+
+ActionView::Template::Error (undefined method `username' for nil:NilClass):
+    1: <h1>Thank you <%= @user.username %> for signing up at <font color = "#922">Notebook</font></h1>
+    2: <p><a href = "localhost:3000">Click here</a> to sign in to your Notebook account</p>
+    3: <%= image_tag(@user.profile_pic.url) %>
+  app/views/user_mailer/signup_confirmation.html.erb:1:in `_app_views_user_mailer_signup_confirmation_html_erb___632763727230184977_69920400561380'
+  app/mailers/user_mailer.rb:4:in `signup_confirmation'
+  app/controllers/users_controller.rb:32:in `create'
+
+
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.5ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (27.6ms)
+Cannot render console with content type multipart/form-dataAllowed content types: [#<Mime::Type:0x007f2f5f74d408 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007f2f5f74d138 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007f2f5f75b350 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT  `users`.* FROM `users`  ORDER BY `users`.`id` DESC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mNote Load (0.5ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 13
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM `users` WHERE `users`.`id` = 13[0m
+  [1m[35m (60.3ms)[0m  COMMIT
+[paperclip] deleting /home/akash/rails/practice/public/system/users/profile_pictures/000/000/013/original/Screenshot_from_2015-10-24_17_19_50.png
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-10-25 02:00:54 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wX7cui+s4hajkFOD1UW1u2xPxJ+Gqm2OzF8LORTWQw54r6mKDJIBC8Pdgo+RZD5eNyVhoWwz08Flv8FETvqTxw==", "user"=>{"first_name"=>"Akash", "last_name"=>"Pinnaka", "username"=>"akashpinnaka", "email"=>"aakash.pinnaka@gmail.com", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x007f2f5fc3e890 @tempfile=#<Tempfile:/tmp/RackMultipart20151025-6253-8cecrf.png>, @original_filename="Screenshot from 2015-10-24 17:19:50.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[profile_picture]\"; filename=\"Screenshot from 2015-10-24 17:19:50.png\"\r\nContent-Type: image/png\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151025-6253-j8ny89.png'
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151025-6253-1ptrohb.png'
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'akashpinnaka' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'aakash.pinnaka@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`first_name`, `last_name`, `username`, `email`, `password_digest`, `profile_picture_file_name`, `profile_picture_content_type`, `profile_picture_file_size`, `profile_picture_updated_at`, `created_at`, `updated_at`) VALUES ('Akash', 'Pinnaka', 'akashpinnaka', 'aakash.pinnaka@gmail.com', '$2a$10$ut9JK2DTmsSmHAXmnB4H0uliqiXqGQav.BmvnDpNTLrDsIgNNq41.', 'Screenshot_from_2015-10-24_17_19_50.png', 'image/png', 369146, '2015-10-24 20:30:55', '2015-10-24 20:30:55', '2015-10-24 20:30:55')
+  [1m[36m (127.2ms)[0m  [1mCOMMIT[0m
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from create at /home/akash/rails/practice/app/controllers/users_controller.rb:32)
+  Rendered user_mailer/signup_confirmation.html.erb (10.0ms)
+
+UserMailer#signup_confirmation: processed outbound mail in 21.1ms
+Completed 500 Internal Server Error in 297ms (ActiveRecord: 128.2ms)
+
+ActionView::Template::Error (undefined local variable or method `user' for #<#<Class:0x007f2f386508b0>:0x007f2f512529c0>):
+    1: <h1>Thank you <%= user.first_name %> for signing up at <font color = "#922">Notebook</font></h1>
+    2: <p><a href = "localhost:3000">Click here</a> to sign in to your Notebook account</p>
+    3: <%= image_tag(@user.profile_pic.url) %>
+  app/views/user_mailer/signup_confirmation.html.erb:1:in `_app_views_user_mailer_signup_confirmation_html_erb___632763727230184977_69920600792000'
+  app/mailers/user_mailer.rb:4:in `signup_confirmation'
+  app/controllers/users_controller.rb:32:in `create'
+
+
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.9ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.4ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (28.8ms)
+Cannot render console with content type multipart/form-dataAllowed content types: [#<Mime::Type:0x007f2f5f74d408 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007f2f5f74d138 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007f2f5f75b350 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+  [1m[35mUser Load (0.7ms)[0m  SELECT  `users`.* FROM `users`  ORDER BY `users`.`id` DESC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mNote Load (0.5ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 14
+  [1m[36mSQL (0.6ms)[0m  [1mDELETE FROM `users` WHERE `users`.`id` = 14[0m
+  [1m[35m (57.3ms)[0m  COMMIT
+[paperclip] deleting /home/akash/rails/practice/public/system/users/profile_pictures/000/000/014/original/Screenshot_from_2015-10-24_17_19_50.png
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-10-25 02:01:48 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wX7cui+s4hajkFOD1UW1u2xPxJ+Gqm2OzF8LORTWQw54r6mKDJIBC8Pdgo+RZD5eNyVhoWwz08Flv8FETvqTxw==", "user"=>{"first_name"=>"Akash", "last_name"=>"Pinnaka", "username"=>"akashpinnaka", "email"=>"aakash.pinnaka@gmail.com", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x007f2f387c7f90 @tempfile=#<Tempfile:/tmp/RackMultipart20151025-6253-ryfs6.png>, @original_filename="Screenshot from 2015-10-24 17:19:50.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[profile_picture]\"; filename=\"Screenshot from 2015-10-24 17:19:50.png\"\r\nContent-Type: image/png\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151025-6253-mjdjia.png'
+  [1m[35m (0.2ms)[0m  BEGIN
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151025-6253-1iw8bzf.png'
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'akashpinnaka' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'aakash.pinnaka@gmail.com' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `users` (`first_name`, `last_name`, `username`, `email`, `password_digest`, `profile_picture_file_name`, `profile_picture_content_type`, `profile_picture_file_size`, `profile_picture_updated_at`, `created_at`, `updated_at`) VALUES ('Akash', 'Pinnaka', 'akashpinnaka', 'aakash.pinnaka@gmail.com', '$2a$10$Dwz433fBNte3s756FM.mxuWMcgx9iTI023RbO.57VMZsnXZqdb7Dq', 'Screenshot_from_2015-10-24_17_19_50.png', 'image/png', 369146, '2015-10-24 20:31:49', '2015-10-24 20:31:49', '2015-10-24 20:31:49')[0m
+  [1m[35m (58.5ms)[0m  COMMIT
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from create at /home/akash/rails/practice/app/controllers/users_controller.rb:32)
+  Rendered user_mailer/signup_confirmation.html.erb (3.8ms)
+
+UserMailer#signup_confirmation: processed outbound mail in 14.3ms
+Completed 500 Internal Server Error in 228ms (ActiveRecord: 61.8ms)
+
+ActionView::Template::Error (undefined method `profile_pic' for #<User:0x007f2f387fb188>):
+    1: <h1>Thank you <%= @user.first_name %> for signing up at <font color = "#922">Notebook</font></h1>
+    2: <p><a href = "localhost:3000">Click here</a> to sign in to your Notebook account</p>
+    3: <%= image_tag(@user.profile_pic.url) %>
+  app/views/user_mailer/signup_confirmation.html.erb:3:in `_app_views_user_mailer_signup_confirmation_html_erb___632763727230184977_69920395137500'
+  app/mailers/user_mailer.rb:5:in `signup_confirmation'
+  app/controllers/users_controller.rb:32:in `create'
+
+
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.5ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (23.0ms)
+Cannot render console with content type multipart/form-dataAllowed content types: [#<Mime::Type:0x007f2f5f74d408 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007f2f5f74d138 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007f2f5f75b350 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+  [1m[35mUser Load (0.9ms)[0m  SELECT `users`.* FROM `users`
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT  `users`.* FROM `users`  ORDER BY `users`.`id` DESC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mNote Load (0.6ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 15
+  [1m[36mSQL (0.6ms)[0m  [1mDELETE FROM `users` WHERE `users`.`id` = 15[0m
+  [1m[35m (65.0ms)[0m  COMMIT
+[paperclip] deleting /home/akash/rails/practice/public/system/users/profile_pictures/000/000/015/original/Screenshot_from_2015-10-24_17_19_50.png
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-10-25 02:02:50 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wX7cui+s4hajkFOD1UW1u2xPxJ+Gqm2OzF8LORTWQw54r6mKDJIBC8Pdgo+RZD5eNyVhoWwz08Flv8FETvqTxw==", "user"=>{"first_name"=>"Akash", "last_name"=>"Pinnaka", "username"=>"akashpinnaka", "email"=>"aakash.pinnaka@gmail.com", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x007f2f39b05f58 @tempfile=#<Tempfile:/tmp/RackMultipart20151025-6253-f85e56.png>, @original_filename="Screenshot from 2015-10-24 17:19:50.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[profile_picture]\"; filename=\"Screenshot from 2015-10-24 17:19:50.png\"\r\nContent-Type: image/png\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151025-6253-144bij7.png'
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151025-6253-i2ljf6.png'
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'akashpinnaka' LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'aakash.pinnaka@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`first_name`, `last_name`, `username`, `email`, `password_digest`, `profile_picture_file_name`, `profile_picture_content_type`, `profile_picture_file_size`, `profile_picture_updated_at`, `created_at`, `updated_at`) VALUES ('Akash', 'Pinnaka', 'akashpinnaka', 'aakash.pinnaka@gmail.com', '$2a$10$asLuykwpePHqdbfEoXITKurnkAQngiJQ1PX29Bhj57cfNz4uBFJOC', 'Screenshot_from_2015-10-24_17_19_50.png', 'image/png', 369146, '2015-10-24 20:32:50', '2015-10-24 20:32:50', '2015-10-24 20:32:50')
+  [1m[36m (126.7ms)[0m  [1mCOMMIT[0m
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from create at /home/akash/rails/practice/app/controllers/users_controller.rb:32)
+  Rendered user_mailer/signup_confirmation.html.erb (3.0ms)
+
+UserMailer#signup_confirmation: processed outbound mail in 16.2ms
+
+Sent mail to aakash.pinnaka@gmail.com (4450.7ms)
+Date: Sun, 25 Oct 2015 02:02:50 +0530
+From: apinnaka609@gmail.com
+To: aakash.pinnaka@gmail.com
+Message-ID: <562beaf252ff9_186d3f979ce2039c787a1@akash.mail>
+Subject: Signup Confirmation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h1>Thank you Akash for signing up at <font color = "#922">Notebook</font></h1>
+<p><a href = "localhost:3000">Click here</a> to sign in to your Notebook account</p>
+<img src="/system/users/profile_pictures/000/000/016/original/Screenshot_from_2015-10-24_17_19_50.png?1445718770" alt="Screenshot from 2015 10 24 17 19 50" />
+Redirected to http://localhost:3000/notes
+Completed 302 Found in 4740ms (ActiveRecord: 127.7ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-25 02:02:54 +0530
+Processing by NotesController#index as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-25 02:02:54 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (0.5ms)
+Completed 200 OK in 33ms (Views: 32.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/attempt_login" for 127.0.0.1 at 2015-10-25 11:02:47 +0530
+Processing by UsersController#attempt_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+hcaJEeICSJqG7gCBEn0TA35K0wCSr1oys72Z+naFtNDxm8UZLbqPwpWaQ5AaH+pVpOOcujTAydjLjwas/bGGg==", "email"=>"aakash.pinnaka@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'aakash.pinnaka@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1
+Redirected to http://localhost:3000/notes
+Completed 302 Found in 133ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-25 11:02:47 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 16 LIMIT 1[0m
+  [1m[35mNote Load (0.4ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 16  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (2.4ms)
+Completed 200 OK in 43ms (Views: 27.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-25 11:03:37 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 16 LIMIT 1[0m
+  [1m[35mNote Load (0.1ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 16  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (0.9ms)
+Completed 200 OK in 117ms (Views: 115.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/notes.self-9e7c296fedeaa46af26925e858dd84628eb631fdd4efebf3e17a4ea0267ff193.css?body=1" for 127.0.0.1 at 2015-10-25 11:03:38 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-25 11:03:38 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-25 11:03:38 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-25 11:03:38 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-25 11:03:38 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-25 11:03:38 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-25 11:03:38 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-25 11:03:38 +0530
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-25 11:04:08 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 16 LIMIT 1[0m
+  [1m[35mNote Load (0.1ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 16  ORDER BY created_at DESC
+  Rendered notes/index.html.erb within layouts/notes (1.1ms)
+Completed 200 OK in 131ms (Views: 128.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/notes.self-f616897bd2f420c2195f10f728dacc83b93f96efb9fd0c5e1cff472fd8279936.css?body=1" for 127.0.0.1 at 2015-10-25 11:04:08 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-25 11:04:08 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-25 11:04:08 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-25 11:04:08 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-25 11:04:08 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-25 11:04:08 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-25 11:04:08 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-25 11:04:08 +0530
+
+
+Started GET "/users/logout" for 127.0.0.1 at 2015-10-25 11:04:24 +0530
+Processing by UsersController#logout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-25 11:04:24 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (1.5ms)
+Completed 200 OK in 38ms (Views: 36.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/logout" for 127.0.0.1 at 2015-10-25 11:04:25 +0530
+Processing by UsersController#logout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-25 11:04:25 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (0.5ms)
+Completed 200 OK in 31ms (Views: 30.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-10-25 11:42:22 +0530
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/users (5.4ms)
+Completed 200 OK in 41ms (Views: 29.4ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-10-25 11:43:07 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gE7nSDZLAWuN4PCVNhbDrgLRWkp6LjfU0Kc/xAyQkPY5n5J4FXXidu2tIZlyN0hLWbv/dJC3iZt5R/W5VrxAPw==", "user"=>{"first_name"=>"firstname", "last_name"=>"lastname", "username"=>"pinnakaakash", "email"=>"apinnaka609@gmail.com", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x007f2f48ff8bf0 @tempfile=#<Tempfile:/tmp/RackMultipart20151025-6253-11x6wk7.png>, @original_filename="Screenshot from 2015-10-24 15:07:29.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[profile_picture]\"; filename=\"Screenshot from 2015-10-24 15:07:29.png\"\r\nContent-Type: image/png\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Command :: file -b --mime '/tmp/bb71ca95c19e1c7e1cd9f60a95e4606320151025-6253-1rs9q95.png'
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/tmp/bb71ca95c19e1c7e1cd9f60a95e4606320151025-6253-1p4e8ta.png'
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'pinnakaakash' LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'apinnaka609@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`first_name`, `last_name`, `username`, `email`, `password_digest`, `profile_picture_file_name`, `profile_picture_content_type`, `profile_picture_file_size`, `profile_picture_updated_at`, `created_at`, `updated_at`) VALUES ('firstname', 'lastname', 'pinnakaakash', 'apinnaka609@gmail.com', '$2a$10$6f4SULyqFt1aZggmhgGleugw09gDw91ggRO2TkSkVXdC9uAODCQ1a', 'Screenshot_from_2015-10-24_15_07_29.png', 'image/png', 176049, '2015-10-25 06:13:07', '2015-10-25 06:13:07', '2015-10-25 06:13:07')
+  [1m[36m (265.6ms)[0m  [1mCOMMIT[0m
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from create at /home/akash/rails/practice/app/controllers/users_controller.rb:32)
+  Rendered user_mailer/signup_confirmation.html.erb (1.3ms)
+
+UserMailer#signup_confirmation: processed outbound mail in 11.8ms
+
+Sent mail to apinnaka609@gmail.com (5047.5ms)
+Date: Sun, 25 Oct 2015 11:43:08 +0530
+From: aakash.pinnaka@gmail.com
+To: apinnaka609@gmail.com
+Message-ID: <562c72f436ee_186d3f979c74037478831@akash.mail>
+Subject: Signup Confirmation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h1>Thank you firstname for signing up at <font color = "#922">Notebook</font></h1>
+<p><a href = "localhost:3000">Click here</a> to sign in to your Notebook account</p>
+<img src="/system/users/profile_pictures/000/000/017/original/Screenshot_from_2015-10-24_15_07_29.png?1445753587" alt="Screenshot from 2015 10 24 15 07 29" />
+Redirected to http://localhost:3000/notes
+Completed 302 Found in 5492ms (ActiveRecord: 266.5ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-25 11:43:13 +0530
+Processing by NotesController#index as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-25 11:43:13 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (0.5ms)
+Completed 200 OK in 27ms (Views: 26.2ms | ActiveRecord: 0.0ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT  `users`.* FROM `users`  ORDER BY `users`.`id` DESC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mNote Load (0.5ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 17
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM `users` WHERE `users`.`id` = 17[0m
+  [1m[35m (50.6ms)[0m  COMMIT
+[paperclip] deleting /home/akash/rails/practice/public/system/users/profile_pictures/000/000/017/original/Screenshot_from_2015-10-24_15_07_29.png
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-10-25 11:46:16 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/users (177.6ms)
+Completed 200 OK in 238ms (Views: 213.8ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-10-25 11:46:48 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PLOPOHDmQVCKgUjbqFsFMlhXOvPWfXpHCp8JI6at8dCFYvoIU9iiTerMmdfseo7XAz2fzTzkxAijf8Ne/IEhGQ==", "user"=>{"first_name"=>"Akash", "last_name"=>"Pinnaka", "username"=>"pinnakaakash", "email"=>"apinnaka609@gmail.com", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x007f4f09ed3b90 @tempfile=#<Tempfile:/tmp/RackMultipart20151025-10709-1ctgz8l.png>, @original_filename="Screenshot from 2015-10-24 15:07:29.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[profile_picture]\"; filename=\"Screenshot from 2015-10-24 15:07:29.png\"\r\nContent-Type: image/png\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Command :: file -b --mime '/tmp/bb71ca95c19e1c7e1cd9f60a95e4606320151025-10709-41x5wn.png'
+  [1m[35m (0.2ms)[0m  BEGIN
+Command :: file -b --mime '/tmp/bb71ca95c19e1c7e1cd9f60a95e4606320151025-10709-1la1zek.png'
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'pinnakaakash' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'apinnaka609@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`first_name`, `last_name`, `username`, `email`, `password_digest`, `profile_picture_file_name`, `profile_picture_content_type`, `profile_picture_file_size`, `profile_picture_updated_at`, `created_at`, `updated_at`) VALUES ('Akash', 'Pinnaka', 'pinnakaakash', 'apinnaka609@gmail.com', '$2a$10$3OfRiKmuM.Qm8O7J7yVGLe7sfqznqNUpA2DbHrGdSIjP7UGxaU2Bq', 'Screenshot_from_2015-10-24_15_07_29.png', 'image/png', 176049, '2015-10-25 06:16:49', '2015-10-25 06:16:49', '2015-10-25 06:16:49')[0m
+  [1m[35m (102.6ms)[0m  COMMIT
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from create at /home/akash/rails/practice/app/controllers/users_controller.rb:32)
+  Rendered user_mailer/signup_confirmation.html.erb (1.3ms)
+
+UserMailer#signup_confirmation: processed outbound mail in 233.0ms
+
+Sent mail to apinnaka609@gmail.com (5.0ms)
+Date: Sun, 25 Oct 2015 11:46:49 +0530
+From: aakash.pinnaka@gmail.com
+To: apinnaka609@gmail.com
+Message-ID: <562c73d160a62_29d53fa780002f004748e@akash.mail>
+Subject: Signup Confirmation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h1>Thank you Akash for signing up at <font color = "#922">Notebook</font></h1>
+<p><a href = "localhost:3000">Click here</a> to sign in to your Notebook account</p>
+<img src="/system/users/profile_pictures/000/000/018/original/Screenshot_from_2015-10-24_15_07_29.png?1445753809" alt="Screenshot from 2015 10 24 15 07 29" />
+Completed 500 Internal Server Error in 507ms (ActiveRecord: 103.7ms)
+
+ArgumentError (SMTP-AUTH requested but missing user name):
+  app/controllers/users_controller.rb:32:in `create'
+
+
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.0ms)
+Cannot render console with content type multipart/form-dataAllowed content types: [#<Mime::Type:0x007f4f1b244f48 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007f4f1b244c78 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007f4f1b24ed18 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">]
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-25 11:55:09 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (1.4ms)
+Completed 200 OK in 38ms (Views: 32.7ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  `users`.* FROM `users`  ORDER BY `users`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mNote Load (0.7ms)[0m  [1mSELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 18[0m
+  [1m[35mSQL (0.6ms)[0m  DELETE FROM `users` WHERE `users`.`id` = 18
+  [1m[36m (55.1ms)[0m  [1mCOMMIT[0m
+[paperclip] deleting /home/akash/rails/practice/public/system/users/profile_pictures/000/000/018/original/Screenshot_from_2015-10-24_15_07_29.png
+  [1m[35mUser Load (0.7ms)[0m  SELECT  `users`.* FROM `users`  ORDER BY `users`.`id` DESC LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mNote Load (0.8ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 16
+  [1m[36mSQL (0.6ms)[0m  [1mDELETE FROM `users` WHERE `users`.`id` = 16[0m
+  [1m[35m (58.9ms)[0m  COMMIT
+[paperclip] deleting /home/akash/rails/practice/public/system/users/profile_pictures/000/000/016/original/Screenshot_from_2015-10-24_17_19_50.png
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-25 11:55:44 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (2.5ms)
+Completed 200 OK in 302ms (Views: 286.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/users.self-4cdc36fd985a9c9189be86ebbf34f0bb71299d9729e562ccdabe761f9b8cd3f1.css?body=1" for 127.0.0.1 at 2015-10-25 11:55:44 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-25 11:55:44 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-25 11:55:44 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-25 11:55:44 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-25 11:55:44 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-25 11:55:44 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-25 11:55:44 +0530
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-10-25 11:55:45 +0530
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/users (28.3ms)
+Completed 200 OK in 77ms (Views: 59.7ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-10-25 11:56:10 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sUin6tIcqijKmd0izQ/vTEzBPdK/v4nm3CGC7fB4qS0ImdLa8SJJNarUDC6JLmSpF6uY7FUmN6l1wUiQqlR55A==", "user"=>{"first_name"=>"Akash", "last_name"=>"Pinnaka", "username"=>"akashpinnaka", "email"=>"apinnaka609@gmail.com", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x007ff8148f5660 @tempfile=#<Tempfile:/tmp/RackMultipart20151025-11047-fhgk4k.png>, @original_filename="Screenshot from 2015-10-24 17:19:50.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[profile_picture]\"; filename=\"Screenshot from 2015-10-24 17:19:50.png\"\r\nContent-Type: image/png\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151025-11047-gbxmch.png'
+  [1m[35m (0.2ms)[0m  BEGIN
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151025-11047-12oj4ti.png'
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'akashpinnaka' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'apinnaka609@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`first_name`, `last_name`, `username`, `email`, `password_digest`, `profile_picture_file_name`, `profile_picture_content_type`, `profile_picture_file_size`, `profile_picture_updated_at`, `created_at`, `updated_at`) VALUES ('Akash', 'Pinnaka', 'akashpinnaka', 'apinnaka609@gmail.com', '$2a$10$l/cVjgTWGcmMTfihed26H.Gi5cbGdWbyfkISVj54PTU.rB4/DxHTO', 'Screenshot_from_2015-10-24_17_19_50.png', 'image/png', 369146, '2015-10-25 06:26:10', '2015-10-25 06:26:10', '2015-10-25 06:26:10')[0m
+  [1m[35m (71.3ms)[0m  COMMIT
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from create at /home/akash/rails/practice/app/controllers/users_controller.rb:32)
+  Rendered user_mailer/signup_confirmation.html.erb (2.4ms)
+
+UserMailer#signup_confirmation: processed outbound mail in 143.6ms
+
+Sent mail to apinnaka609@gmail.com (1126.7ms)
+Date: Sun, 25 Oct 2015 11:56:10 +0530
+From: developer@notebook.com
+To: apinnaka609@gmail.com
+Message-ID: <562c76029619d_2b273ffc0c00703888423@akash.mail>
+Subject: Signup Confirmation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h1>Thank you Akash for signing up at <font color = "#922">Notebook</font></h1>
+<p><a href = "localhost:3000">Click here</a> to sign in to your Notebook account</p>
+<img src="/system/users/profile_pictures/000/000/019/original/Screenshot_from_2015-10-24_17_19_50.png?1445754370" alt="Screenshot from 2015 10 24 17 19 50" />
+Redirected to http://localhost:3000/notes
+Completed 302 Found in 1515ms (ActiveRecord: 72.6ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-25 11:56:11 +0530
+Processing by NotesController#index as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-25 11:56:11 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (0.3ms)
+Completed 200 OK in 25ms (Views: 24.0ms | ActiveRecord: 0.0ms)
+  [1m[35mUser Load (0.8ms)[0m  SELECT  `users`.* FROM `users`  ORDER BY `users`.`id` DESC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mNote Load (0.7ms)[0m  SELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 19
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM `users` WHERE `users`.`id` = 19[0m
+  [1m[35m (56.9ms)[0m  COMMIT
+[paperclip] deleting /home/akash/rails/practice/public/system/users/profile_pictures/000/000/019/original/Screenshot_from_2015-10-24_17_19_50.png
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  `users`.* FROM `users`  ORDER BY `users`.`id` DESC LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users`
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-10-25 11:56:57 +0530
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/users (6.4ms)
+Completed 200 OK in 40ms (Views: 38.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2015-10-25 11:57:52 +0530
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/users (11.2ms)
+Completed 200 OK in 56ms (Views: 55.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-25 11:57:52 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-25 11:57:52 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-25 11:57:52 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-25 11:57:52 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-25 11:57:52 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-25 11:57:52 +0530
+
+
+Started GET "/assets/users.self-4cdc36fd985a9c9189be86ebbf34f0bb71299d9729e562ccdabe761f9b8cd3f1.css?body=1" for 127.0.0.1 at 2015-10-25 11:57:52 +0530
+
+
+Started GET "/assets/notebook-700c2adca39d55c9eb20b22618d698cb51b640ab3a4cae2206dac34d380e7e94.png" for 127.0.0.1 at 2015-10-25 11:57:52 +0530
+
+
+Started GET "/assets/notebook-700c2adca39d55c9eb20b22618d698cb51b640ab3a4cae2206dac34d380e7e94.png" for 127.0.0.1 at 2015-10-25 11:57:52 +0530
+
+
+Started POST "/users/create" for 127.0.0.1 at 2015-10-25 11:58:21 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"n9nKq+jgenEwJ4cN62Z+VA+zV2nqGxN3LPTo15jsq9cmCL+by96ZbFBqVgGvR/WxVNnyVwCCrTiFFCKqwsB7Hg==", "user"=>{"first_name"=>"Pinnaka", "last_name"=>"Akash", "username"=>"pinnakaakash", "email"=>"apinnaka609@gmail.com", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x007ff818b92a18 @tempfile=#<Tempfile:/tmp/RackMultipart20151025-11047-1p3ndwq.png>, @original_filename="Screenshot from 2015-10-24 17:19:50.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[profile_picture]\"; filename=\"Screenshot from 2015-10-24 17:19:50.png\"\r\nContent-Type: image/png\r\n">, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151025-11047-1clvinx.png'
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime '/tmp/81b619e3b32464bee18fed6c8236355420151025-11047-74713t.png'
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`username` = BINARY 'pinnakaakash' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'apinnaka609@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`first_name`, `last_name`, `username`, `email`, `password_digest`, `profile_picture_file_name`, `profile_picture_content_type`, `profile_picture_file_size`, `profile_picture_updated_at`, `created_at`, `updated_at`) VALUES ('Pinnaka', 'Akash', 'pinnakaakash', 'apinnaka609@gmail.com', '$2a$10$SSvBddm6erOsIAtI2tHtF.vnSwECFnCVWqUN5AZWwuMefXlzUpHi6', 'Screenshot_from_2015-10-24_17_19_50.png', 'image/png', 369146, '2015-10-25 06:28:21', '2015-10-25 06:28:21', '2015-10-25 06:28:21')
+  [1m[36m (104.5ms)[0m  [1mCOMMIT[0m
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from create at /home/akash/rails/practice/app/controllers/users_controller.rb:32)
+  Rendered user_mailer/signup_confirmation.html.erb (2.8ms)
+
+UserMailer#signup_confirmation: processed outbound mail in 13.4ms
+
+Sent mail to apinnaka609@gmail.com (1078.1ms)
+Date: Sun, 25 Oct 2015 11:58:21 +0530
+From: developer@notebook.com
+To: apinnaka609@gmail.com
+Message-ID: <562c7685445c5_2b273ffc0e007e50885bd@akash.mail>
+Subject: Signup Confirmation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h1>Thank you Pinnaka for signing up at <font color = "#922">Notebook</font></h1>
+<p>your password is weakpassword</p>
+<p><a href = "localhost:3000">Click here</a> to sign in to your Notebook account</p>
+<img src="/system/users/profile_pictures/000/000/020/original/Screenshot_from_2015-10-24_17_19_50.png?1445754501" alt="Screenshot from 2015 10 24 17 19 50" />
+Redirected to http://localhost:3000/notes
+Completed 302 Found in 1336ms (ActiveRecord: 106.2ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-25 11:58:22 +0530
+Processing by NotesController#index as HTML
+Redirected to http://localhost:3000/
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-25 11:58:22 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (0.4ms)
+Completed 200 OK in 32ms (Views: 31.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/attempt_login" for 127.0.0.1 at 2015-10-25 12:03:03 +0530
+Processing by UsersController#attempt_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XQSFTuHczUZWiUN7IbkOUkJB3alHbnPpR62n9wx6x7Tk1fB+wuIuWzbEkndlmIW3GSt4l633zabuTW2KVlYXfQ==", "email"=>"apinnaka609@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`email` = 'apinnaka609@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered users/index.html.erb within layouts/users (0.7ms)
+Completed 200 OK in 166ms (Views: 34.4ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/users/attempt_login" for 127.0.0.1 at 2015-10-25 12:03:12 +0530
+Processing by UsersController#attempt_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k1CpsK0ZIkKRlnGMAlGosSJLhNwkSnOhvxCHQ88HhLQqgdyAjifBX/HboIBGcCNUeSEh4s7Tze4W8E0+lStUfQ==", "email"=>"apinnaka609@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'apinnaka609@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/notes
+Completed 302 Found in 95ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-25 12:03:12 +0530
+Processing by NotesController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 20 LIMIT 1
+  [1m[36mNote Load (0.3ms)[0m  [1mSELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 20  ORDER BY created_at DESC[0m
+  Rendered notes/index.html.erb within layouts/notes (2.3ms)
+Completed 200 OK in 51ms (Views: 36.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-25 12:04:25 +0530
+Processing by NotesController#index as HTML
+  [1m[35mUser Load (1.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 20 LIMIT 1
+  [1m[36mNote Load (0.2ms)[0m  [1mSELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 20  ORDER BY created_at DESC[0m
+  Rendered notes/index.html.erb within layouts/notes (1.7ms)
+Completed 200 OK in 118ms (Views: 113.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-25 12:04:25 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-25 12:04:25 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-25 12:04:25 +0530
+
+
+Started GET "/assets/notes.self-4f803705135ecaaabb8a15ae19edf568c0f0c4aeccccefea75a711af95a81704.css?body=1" for 127.0.0.1 at 2015-10-25 12:04:25 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-25 12:04:25 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-25 12:04:25 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-10-25 12:04:25 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-25 12:04:25 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-10-25 12:04:26 +0530
+
+
+Started GET "/users/show/20" for 127.0.0.1 at 2015-10-25 12:04:38 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 20 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 20 LIMIT 1[0m
+  Rendered users/show.html.erb within layouts/notes (2.7ms)
+Completed 200 OK in 51ms (Views: 47.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/edit/20" for 127.0.0.1 at 2015-10-25 12:09:25 +0530
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"20"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 20 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 20 LIMIT 1[0m
+  Rendered users/edit.html.erb within layouts/notes (6.4ms)
+Completed 200 OK in 51ms (Views: 48.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/show/20" for 127.0.0.1 at 2015-10-25 12:09:29 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 20 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 20 LIMIT 1[0m
+  Rendered users/show.html.erb within layouts/notes (1.7ms)
+Completed 200 OK in 56ms (Views: 52.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-10-25 12:09:30 +0530
+Processing by NotesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 20 LIMIT 1
+  [1m[36mNote Load (0.3ms)[0m  [1mSELECT `notes`.* FROM `notes` WHERE `notes`.`user_id` = 20  ORDER BY created_at DESC[0m
+  Rendered notes/index.html.erb within layouts/notes (4.0ms)
+Completed 200 OK in 58ms (Views: 54.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/logout" for 127.0.0.1 at 2015-10-25 12:09:42 +0530
+Processing by UsersController#logout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-25 12:09:42 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (1.2ms)
+Completed 200 OK in 29ms (Views: 28.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/logout" for 127.0.0.1 at 2015-10-25 12:09:42 +0530
+Processing by UsersController#logout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-25 12:09:42 +0530
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/users (0.4ms)
+Completed 200 OK in 24ms (Views: 23.9ms | ActiveRecord: 0.0ms)

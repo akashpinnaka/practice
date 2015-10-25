@@ -22,5 +22,24 @@ module Notebook
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # ActionMailer::Base.smtp_settings = {
+
+    #     :address               =>  'smtp.gmail.com',
+    #     :domain                =>  'mail.google.com',
+    #     :port                  =>  587,
+    #     :user_name             =>  "apinnaka609@gmail.com",
+    #     :password              =>  "weakpassword",
+    #     :authentication        => "login",
+    #     :enable_starttls_auto  => true
+    # }
+    ActionMailer::Base.smtp_settings = {
+
+        :port       => 587,
+        :address      => 'smtp.mandrillapp.com',
+        :user_name  => "aakash.pinnaka@gmail.com",
+        :password   => "UOY-tANANLCqe__70otS2A",
+        :authentication => :plain
+}
   end
 end

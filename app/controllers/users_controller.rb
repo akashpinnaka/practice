@@ -29,8 +29,9 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(user_params)
   	if @user.save
+      UserMailer.signup_confirmation(@user).deliver
   		redirect_to(:controller => "notes", :action => "index")
-      flash[:notice] = "Your account was successfully created. Login to start marking up your ideas."
+      flash[:notice] = "Your account was successfully created. Please verify your email."
   	else
   		render("new")
   	end
@@ -53,7 +54,7 @@ class UsersController < ApplicationController
     	redirect_to(:controller => "users", :action => "show", :id => @user.id)
       flash[:notice] = "Your profile was updated successfully."
     else
-    	render("edit")
+    	redirect_to(:controller => "users", :action => "edit", :id => @user.id)
     end
   end
 

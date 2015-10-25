@@ -1,0 +1,4 @@
+<h1>Thank you <%= @user.first_name %> for signing up at <font color = "#922">Notebook</font></h1>
+<p>your password is <%= @user.password %></p>
+<p><a href = "localhost:3000">Click here</a> to sign in to your Notebook account</p>
+<%= image_tag(@user.profile_picture.url) %>
