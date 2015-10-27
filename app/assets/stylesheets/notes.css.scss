@@ -6,28 +6,39 @@
 
 body{background: #ffffee; font-family: 'Montserrat', sans-serif;}
 div#page{width: 980px; margin: 0px auto;}
-div#layout_header{position: fixed;background: #00cc66;width: 100%; top: 0px; left: 0px;
+div#layout_header{position: fixed;background: #ffff94;width: 100%; top: 0px; left: 0px;
                   border-bottom: 3px solid #922;}
 h1#header{text-align: center; color: #8a0707;}
-p#welcome{text-align: center; color: #922; background: #aaf; padding: 5px;}
+p#welcome{text-align: center; color: #922; background:  rgba(256,256, 150, 0.5); padding: 5px;}
 p.flash_notice{margin: 0px auto; text-align: center; color: #922;
                             background-color: #ccf;width: 900px;}
 p#show_page_notes{width: 840px;}
+h1.center, p.center{text-align: center; color: #204056; font-weight: normal;}
 img#logo{position: fixed; top: 10px; left: 10%;}
-img#profile_pic{position: absolute; width: 80px; height: 60px; top: 10px; right: 150px;
+img#profile_pic{position: fixed; width: 70px; height: 70px; top: 10px; right: 150px;
                 box-shadow: 1px 1px 2px #000, -1px -1px 2px #000; 
-                border-radius: 10px;}
-img#profile_pic:hover{width: 82px; height: 62px; right: 149px; top: 9px;}
+                border-radius: 60px;}
+/*img#profile_pic:hover{border-radius: 0px;}*/
+form#search_form{margin: 4px 50px 0px 0px;}
+form#search_form #search_input{height: 20px; width: 200px; border: 1px solid #999;
+                               border-radius: 4px;}
+form#search_form #search_submit{height: 23px; background-color: #922; color: #fff; border: none;
+                                cursor: pointer; border-radius: 4px;}
+form#search_form #search_input:focus{box-shadow: 0px 0px 1px #777}
+form#search_form #search_submit:hover{background-color: #a33;}
+#search_input:focus, #search_submit:focus{outline: none;}
 /*div#content_wrapper{margin-bottom: 100px;}*/
-div#footer_index{width: 100%; height: 50px; background: #00cc66; position: fixed;
-                 left: 0px; bottom: 2px;}
-p#copyright{text-align: center; color: #fff;}
+div#placeholder_above_footer{height: 100px;}
+div#footer_index{width: 100%; height: 50px; background: rgba(256,256, 150, 0.5); position: fixed;
+                 left: 0px; bottom: 2px; box-shadow: inset 0px 0px 3px #000;}
+p#copyright{text-align: center; color: #922;}
 a.note_title{color: #00cc66;}
 div#actions{float: right;}
 div#title_actions_new{margin-top: 100px; width: 980px;}
 div.title_actions{width: 980px; margin: 0px auto;}
 a{text-decoration: none;}
-a.new_note{float: right;background: #00cc66; padding: 7px; border-radius: 3px; 
+.new_note{float: right;}
+a.new_note{background: #00cc66; padding: 7px; border-radius: 3px; 
            color: #fff; margin-right: 10px;border: 1px solid #0c6;}
 a.new_note:hover{background: #fff; color: #00cc66; border: 1px solid #00cc66;}
 a.new_note:active{background: #00cc66; color: #fff;}
@@ -48,7 +59,7 @@ a#back_link{background: #00cc66; padding: 7px; color: #fff; border-radius: 3px;}
 a#back_link:hover{background: #fff; color: #00cc66; border: 1px solid #00cc66;}
 a#back_link:active{background: #00cc66; color: #fff;}
 p#paragraph_content{text-align: justify}
-div#footer_show{width: 100%; height: 50px; background: #00cc66; position: fixed;
+div#footer_show{width: 100%; height: 50px; background: rgba(256,256, 150, 0.5); position: fixed;
                  bottom: -5px; left: 0px; margin:40px 0px 5px 0px;
                  /*border-bottom: 10px solid #fee;*/}
 a.edit_button_show{background: #0c6; padding: 5px; border-radius: 3px;
@@ -72,7 +83,7 @@ a.cancel{background: #00cc66; padding: 7px 11px 7px 11px; color: #fff; border-ra
          position: relative; top: 1px; width: 70px;font-size: 99%;}
 a.cancel:hover{background: #fff; color: #00cc66; border: 1px solid #00cc66;}
 a.cancel:active{background: #00cc66; color: #fff;}
-div#footer_new{background: #00cc66; height: 50px; width: 100%; position: absolute;
+div#footer_new{background: rgba(256,256, 150, 0.5); height: 50px; width: 100%; position: absolute;
               left: 0px; bottom: 4px; }
 .no_outline:focus{outline: none;}
 

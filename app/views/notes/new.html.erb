@@ -1,6 +1,6 @@
 <div id = "main_content_new">
 <h1>Create a new Idea</h1>
-<%= form_for(:note, :url => {:action => 'create'}, ) do |f| %>
+<%= form_for(:note, :url => {:action => 'create'} ) do |f| %>
 	<%= f.label :title %><br />
 	<%= f.text_field :title, :id => "title_field", :class => "field no_outline" %><br /><br />
 	<%= f.label :content %><br />

@@ -7,7 +7,12 @@ class NotesController < ApplicationController
   before_action :find_user
 
   def index
-    @notes = @user.notes.order("created_at DESC")
+    if params[:search]
+      #@notes = Note.where(["title LIKE ?", "%#{params[:search]}%"])
+      @notes = Note.search(params[:search])
+    else
+      @notes = @user.notes.order("created_at DESC")
+    end  
   end
 
   def show

@@ -4,6 +4,10 @@
 	<%= link_to "Logout", {:controller => "users", :action => "logout"}, :class => "new_note" %>
 	<%= link_to "New note", {:action => "new"}, :class => "new_note" %>
 
+    <%= form_tag "notes#index", :method => 'get', :id => "search_form", :class => "new_note" do %>
+    	<%= text_field_tag :search, params[:search], :id => "search_input" %>
+    	<%= submit_tag "Search", :name => nil, :id => "search_submit" %>
+    <% end %>
 
 	<br /><br /><br />
 	<p id = "welcome">Welcome <%= session[:first_name] %> <%= session[:last_name] %></p>
@@ -11,6 +15,11 @@
 	<p class = "flash_notice">
 	   <%= flash[:notice] %>
 	</p>
+	<% if @notes.count == 0 %>
+	<h1 class = "center"> No notes found with that name</h1> 
+	<% else %>
+	<p class = "center"><%= @notes.count %> notes found </p>
+	<% end %>
     <div id = "content_wrapper">
 
 	    <% @notes.each do |note| %>	     
@@ -34,8 +43,9 @@
 	</div>
 
 </div>
-
 <% end %>
+
+<div id = "placeholder_above_footer"></div>
 <div id = "footer_index">
 <p id = "copyright">&copy;Akash Pinnaka</p>
 </div>
