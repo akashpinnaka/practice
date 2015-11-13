@@ -23345,3 +23345,525 @@ Processing by NotesController#index as HTML
   [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2  [["user_id", 2]]
   Rendered notes/index.html.erb within layouts/notes (15.4ms)
 Completed 200 OK in 65ms (Views: 60.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-14 02:17:23 +0530
+Processing by UsersController#index as HTML
+Redirected to http://localhost:3000/notes
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-14 02:17:24 +0530
+Processing by UsersController#index as HTML
+Redirected to http://localhost:3000/notes
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-11-14 02:17:24 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2[0m  [["user_id", 2]]
+  [1m[35mNote Load (0.2ms)[0m  SELECT  `notes`.* FROM `notes` WHERE `notes`.`user_id` = 2  ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2[0m  [["user_id", 2]]
+  Rendered notes/index.html.erb within layouts/notes (11.0ms)
+Completed 200 OK in 224ms (Views: 222.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/notes/new" for 127.0.0.1 at 2015-11-14 02:18:24 +0530
+Processing by NotesController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  Rendered notes/new.html.erb within layouts/notes (3.6ms)
+Completed 200 OK in 50ms (Views: 48.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-11-14 02:18:31 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2[0m  [["user_id", 2]]
+  [1m[35mNote Load (0.1ms)[0m  SELECT  `notes`.* FROM `notes` WHERE `notes`.`user_id` = 2  ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2[0m  [["user_id", 2]]
+  Rendered notes/index.html.erb within layouts/notes (10.3ms)
+Completed 200 OK in 48ms (Views: 45.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/notes/new" for 127.0.0.1 at 2015-11-14 02:18:35 +0530
+Processing by NotesController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  Rendered notes/new.html.erb within layouts/notes (2.0ms)
+Completed 200 OK in 41ms (Views: 39.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/notes/create" for 127.0.0.1 at 2015-11-14 02:19:01 +0530
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FWLF/bLovR87AeB3p3SVaM/k9ike8FPtDOXx7atxl9MXTDD9kpQL8U5ubfQ0VjG92m0HI4Hh9a5pJADwcN78vQ==", "note"=>{"title"=>"Note 25", "content"=>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"}, "commit"=>"Create note"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `notes` (`title`, `content`, `user_id`, `created_at`, `updated_at`) VALUES ('Note 25', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', 2, '2015-11-13 20:49:01', '2015-11-13 20:49:01')
+  [1m[36m (88.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/notes/index/25
+Completed 302 Found in 93ms (ActiveRecord: 88.9ms)
+
+
+Started GET "/notes/index/25" for 127.0.0.1 at 2015-11-14 02:19:01 +0530
+Processing by NotesController#index as HTML
+  Parameters: {"id"=>"25"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2  [["user_id", 2]]
+  [1m[36mNote Load (0.6ms)[0m  [1mSELECT  `notes`.* FROM `notes` WHERE `notes`.`user_id` = 2  ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2  [["user_id", 2]]
+  Rendered notes/index.html.erb within layouts/notes (10.0ms)
+Completed 200 OK in 44ms (Views: 41.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/notes/new" for 127.0.0.1 at 2015-11-14 02:19:10 +0530
+Processing by NotesController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered notes/new.html.erb within layouts/notes (2.9ms)
+Completed 200 OK in 54ms (Views: 52.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/notes/create" for 127.0.0.1 at 2015-11-14 02:19:23 +0530
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sBY/9WuhjwffczemDHqdKSGi8IufHsB+fC0Ul8t5i9SyOMr1S9056aocuiWfWDn8NCsBgQAPZj0Z7OWKENbgug==", "note"=>{"title"=>"Note 26", "content"=>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"}, "commit"=>"Create note"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `notes` (`title`, `content`, `user_id`, `created_at`, `updated_at`) VALUES ('Note 26', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', 2, '2015-11-13 20:49:23', '2015-11-13 20:49:23')[0m
+  [1m[35m (49.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/notes/index/26
+Completed 302 Found in 55ms (ActiveRecord: 49.8ms)
+
+
+Started GET "/notes/index/26" for 127.0.0.1 at 2015-11-14 02:19:24 +0530
+Processing by NotesController#index as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2[0m  [["user_id", 2]]
+  [1m[35mNote Load (0.3ms)[0m  SELECT  `notes`.* FROM `notes` WHERE `notes`.`user_id` = 2  ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2[0m  [["user_id", 2]]
+  Rendered notes/index.html.erb within layouts/notes (9.5ms)
+Completed 200 OK in 47ms (Views: 43.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/notes/edit/26" for 127.0.0.1 at 2015-11-14 02:20:22 +0530
+Processing by NotesController#edit as HTML
+  Parameters: {"id"=>"26"}
+  [1m[35mNote Load (0.5ms)[0m  SELECT  `notes`.* FROM `notes` WHERE `notes`.`id` = 26 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered notes/edit.html.erb within layouts/notes (1.7ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.7ms)
+
+SyntaxError (/home/akash/rails/practice/app/views/notes/edit.html.erb:8: syntax error, unexpected ','
+...s => 'submit_note no_outline',, data: { disable_with: "updat...
+...                               ^):
+  app/views/notes/edit.html.erb:8: syntax error, unexpected ','
+
+
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.1ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (23.6ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (14.5ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (34.4ms)
+
+
+Started GET "/notes/edit/26" for 127.0.0.1 at 2015-11-14 02:20:22 +0530
+Processing by NotesController#edit as HTML
+  Parameters: {"id"=>"26"}
+  [1m[35mNote Load (0.1ms)[0m  SELECT  `notes`.* FROM `notes` WHERE `notes`.`id` = 26 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered notes/edit.html.erb within layouts/notes (1.1ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms)
+
+SyntaxError (/home/akash/rails/practice/app/views/notes/edit.html.erb:8: syntax error, unexpected ','
+...s => 'submit_note no_outline',, data: { disable_with: "updat...
+...                               ^):
+  app/views/notes/edit.html.erb:8: syntax error, unexpected ','
+
+
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.9ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (23.4ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (15.2ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (30.2ms)
+
+
+Started GET "/notes/edit/26" for 127.0.0.1 at 2015-11-14 02:20:34 +0530
+Processing by NotesController#edit as HTML
+  Parameters: {"id"=>"26"}
+  [1m[35mNote Load (0.2ms)[0m  SELECT  `notes`.* FROM `notes` WHERE `notes`.`id` = 26 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered notes/edit.html.erb within layouts/notes (2.5ms)
+Completed 200 OK in 40ms (Views: 38.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/notes/update/26" for 127.0.0.1 at 2015-11-14 02:20:47 +0530
+Processing by NotesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YNpua6QPk4+v/2ipwaYHuuiPwpeW64WuPnyBnHZlCSRi9JtrhHMlYdqQ5SpShKNv/QYznQn6I+1bvXCBrcpiSg==", "note"=>{"title"=>"Note 26", "content"=>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem IpsumLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem IpsumLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem IpsumLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"}, "commit"=>"Update note", "id"=>"26"}
+  [1m[35mNote Load (0.2ms)[0m  SELECT  `notes`.* FROM `notes` WHERE `notes`.`id` = 26 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE `notes` SET `content` = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem IpsumLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem IpsumLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem IpsumLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', `updated_at` = '2015-11-13 20:50:47' WHERE `notes`.`id` = 26[0m
+  [1m[35m (53.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/notes/show/26
+Completed 302 Found in 61ms (ActiveRecord: 55.0ms)
+
+
+Started GET "/notes/show/26" for 127.0.0.1 at 2015-11-14 02:20:47 +0530
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mNote Load (0.3ms)[0m  [1mSELECT  `notes`.* FROM `notes` WHERE `notes`.`id` = 26 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  Rendered notes/show.html.erb within layouts/notes (0.9ms)
+Completed 200 OK in 35ms (Views: 33.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2015-11-14 02:20:54 +0530
+Processing by NotesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2[0m  [["user_id", 2]]
+  [1m[35mNote Load (0.5ms)[0m  SELECT  `notes`.* FROM `notes` WHERE `notes`.`user_id` = 2  ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2[0m  [["user_id", 2]]
+  Rendered notes/index.html.erb within layouts/notes (11.5ms)
+Completed 200 OK in 49ms (Views: 46.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/notes?page=6" for 127.0.0.1 at 2015-11-14 02:21:05 +0530
+Processing by NotesController#index as HTML
+  Parameters: {"page"=>"6"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2  [["user_id", 2]]
+  [1m[36mNote Load (0.5ms)[0m  [1mSELECT  `notes`.* FROM `notes` WHERE `notes`.`user_id` = 2  ORDER BY created_at DESC LIMIT 5 OFFSET 25[0m
+  Rendered notes/index.html.erb within layouts/notes (6.2ms)
+Completed 200 OK in 44ms (Views: 40.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/notes?page=1" for 127.0.0.1 at 2015-11-14 02:21:12 +0530
+Processing by NotesController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2  [["user_id", 2]]
+  [1m[36mNote Load (0.1ms)[0m  [1mSELECT  `notes`.* FROM `notes` WHERE `notes`.`user_id` = 2  ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2  [["user_id", 2]]
+  Rendered notes/index.html.erb within layouts/notes (10.1ms)
+Completed 200 OK in 49ms (Views: 46.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/notes?page=6" for 127.0.0.1 at 2015-11-14 02:21:17 +0530
+Processing by NotesController#index as HTML
+  Parameters: {"page"=>"6"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2[0m  [["user_id", 2]]
+  [1m[35mNote Load (0.2ms)[0m  SELECT  `notes`.* FROM `notes` WHERE `notes`.`user_id` = 2  ORDER BY created_at DESC LIMIT 5 OFFSET 25
+  Rendered notes/index.html.erb within layouts/notes (9.3ms)
+Completed 200 OK in 66ms (Views: 62.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/notes?page=1" for 127.0.0.1 at 2015-11-14 02:21:19 +0530
+Processing by NotesController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2[0m  [["user_id", 2]]
+  [1m[35mNote Load (0.3ms)[0m  SELECT  `notes`.* FROM `notes` WHERE `notes`.`user_id` = 2  ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2[0m  [["user_id", 2]]
+  Rendered notes/index.html.erb within layouts/notes (14.3ms)
+Completed 200 OK in 61ms (Views: 57.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/notes?page=6" for 127.0.0.1 at 2015-11-14 02:21:36 +0530
+Processing by NotesController#index as HTML
+  Parameters: {"page"=>"6"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2  [["user_id", 2]]
+  [1m[36mNote Load (0.2ms)[0m  [1mSELECT  `notes`.* FROM `notes` WHERE `notes`.`user_id` = 2  ORDER BY created_at DESC LIMIT 5 OFFSET 25[0m
+  Rendered notes/index.html.erb within layouts/notes (5.7ms)
+Completed 200 OK in 42ms (Views: 39.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/notes?page=1" for 127.0.0.1 at 2015-11-14 02:21:38 +0530
+Processing by NotesController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2  [["user_id", 2]]
+  [1m[36mNote Load (0.1ms)[0m  [1mSELECT  `notes`.* FROM `notes` WHERE `notes`.`user_id` = 2  ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2  [["user_id", 2]]
+  Rendered notes/index.html.erb within layouts/notes (11.5ms)
+Completed 200 OK in 49ms (Views: 46.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/notes?page=1" for 127.0.0.1 at 2015-11-14 02:24:37 +0530
+Processing by NotesController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2[0m  [["user_id", 2]]
+  [1m[35mNote Load (0.3ms)[0m  SELECT  `notes`.* FROM `notes` WHERE `notes`.`user_id` = 2  ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2[0m  [["user_id", 2]]
+  Rendered notes/index.html.erb within layouts/notes (15.4ms)
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 0.8ms)
+
+ActionView::Template::Error (Invalid CSS after "... 0;, padding: 0": expected "{", was ";}"):
+    2: <html>
+    3: <head>
+    4:   <title>Notebook</title>
+    5:   <%= stylesheet_link_tag 'notes', media: 'all', 'data-turbolinks-track' => true %>
+    6:   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'
+    7:         type='text/css'>
+    8:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  app/assets/stylesheets/notes.css.scss:34
+  app/views/layouts/notes.html.erb:5:in `_app_views_layouts_notes_html_erb__149039172634081646_70085750180900'
+
+
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.9ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (25.4ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (14.4ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/akash/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (28.4ms)
+
+
+Started GET "/notes?page=1" for 127.0.0.1 at 2015-11-14 02:24:54 +0530
+Processing by NotesController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2  [["user_id", 2]]
+  [1m[36mNote Load (0.2ms)[0m  [1mSELECT  `notes`.* FROM `notes` WHERE `notes`.`user_id` = 2  ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2  [["user_id", 2]]
+  Rendered notes/index.html.erb within layouts/notes (11.1ms)
+Completed 200 OK in 139ms (Views: 136.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/notes.self-fc92b03fdaa839a1e6e16f40366c52203c33f001444bc4e515121165f998fb5d.css?body=1" for 127.0.0.1 at 2015-11-14 02:24:55 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-14 02:24:55 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-11-14 02:24:55 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-14 02:24:55 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-14 02:24:55 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-14 02:24:55 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-14 02:24:55 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-11-14 02:24:55 +0530
+
+
+Started GET "/notes?page=1" for 127.0.0.1 at 2015-11-14 02:25:05 +0530
+Processing by NotesController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2[0m  [["user_id", 2]]
+  [1m[35mNote Load (0.3ms)[0m  SELECT  `notes`.* FROM `notes` WHERE `notes`.`user_id` = 2  ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2[0m  [["user_id", 2]]
+  Rendered notes/index.html.erb within layouts/notes (17.8ms)
+Completed 200 OK in 73ms (Views: 68.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/notes.self-cc41c5affda794e5c175f66582571d53f494476748572f5663da7168cc617c41.css?body=1" for 127.0.0.1 at 2015-11-14 02:25:05 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:05 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:05 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:05 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:05 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:05 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:05 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-11-14 02:25:05 +0530
+
+
+Started GET "/notes?page=1" for 127.0.0.1 at 2015-11-14 02:25:20 +0530
+Processing by NotesController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2  [["user_id", 2]]
+  [1m[36mNote Load (0.2ms)[0m  [1mSELECT  `notes`.* FROM `notes` WHERE `notes`.`user_id` = 2  ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2  [["user_id", 2]]
+  Rendered notes/index.html.erb within layouts/notes (9.6ms)
+Completed 200 OK in 137ms (Views: 134.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/notes.self-bb5aa995e073d6e882239436967dc13e959d58c3c8d38935439ee04176094e40.css?body=1" for 127.0.0.1 at 2015-11-14 02:25:21 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:21 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:21 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:21 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:21 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:21 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:21 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-11-14 02:25:21 +0530
+
+
+Started GET "/notes?page=1" for 127.0.0.1 at 2015-11-14 02:25:29 +0530
+Processing by NotesController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2[0m  [["user_id", 2]]
+  [1m[35mNote Load (0.2ms)[0m  SELECT  `notes`.* FROM `notes` WHERE `notes`.`user_id` = 2  ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2[0m  [["user_id", 2]]
+  Rendered notes/index.html.erb within layouts/notes (14.6ms)
+Completed 200 OK in 159ms (Views: 155.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/notes.self-4112ea56f6cfd863f94dc4eb48036eecdf3120ebbbe7d22f5a7a34056c59ae7d.css?body=1" for 127.0.0.1 at 2015-11-14 02:25:29 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:29 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:29 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:29 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:29 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:29 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:29 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-11-14 02:25:29 +0530
+
+
+Started GET "/notes?page=1" for 127.0.0.1 at 2015-11-14 02:25:39 +0530
+Processing by NotesController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2  [["user_id", 2]]
+  [1m[36mNote Load (0.1ms)[0m  [1mSELECT  `notes`.* FROM `notes` WHERE `notes`.`user_id` = 2  ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2  [["user_id", 2]]
+  Rendered notes/index.html.erb within layouts/notes (7.9ms)
+Completed 200 OK in 38ms (Views: 35.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/notes.self-bb5aa995e073d6e882239436967dc13e959d58c3c8d38935439ee04176094e40.css?body=1" for 127.0.0.1 at 2015-11-14 02:25:39 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:39 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:39 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:39 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:39 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:39 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:39 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-11-14 02:25:39 +0530
+
+
+Started GET "/notes?page=1" for 127.0.0.1 at 2015-11-14 02:25:49 +0530
+Processing by NotesController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2[0m  [["user_id", 2]]
+  [1m[35mNote Load (0.1ms)[0m  SELECT  `notes`.* FROM `notes` WHERE `notes`.`user_id` = 2  ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `notes` WHERE `notes`.`user_id` = 2[0m  [["user_id", 2]]
+  Rendered notes/index.html.erb within layouts/notes (9.2ms)
+Completed 200 OK in 43ms (Views: 41.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/notes.self-cc41c5affda794e5c175f66582571d53f494476748572f5663da7168cc617c41.css?body=1" for 127.0.0.1 at 2015-11-14 02:25:49 +0530
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:49 +0530
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:49 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:49 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:49 +0530
+
+
+Started GET "/assets/notes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:49 +0530
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2015-11-14 02:25:49 +0530
+
+
+Started GET "/assets/note-5a99004bb91c57f6ec05fcbe9cbd2a9435179a30ae4a6447c5687dc6b92d8fa0.png" for 127.0.0.1 at 2015-11-14 02:25:49 +0530
