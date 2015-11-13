@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+#to limit the number of notes to display per page
+gem 'will_paginate', '~> 3.0', '>= 3.0.7'
 #To allow users upload their own images
 gem "paperclip", "~> 4.3"
 #A simple, fast Mysql library for Ruby, binding to libmysql

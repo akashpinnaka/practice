@@ -16,7 +16,7 @@
 	   <%= flash[:notice] %>
 	</p>
 	<% if @notes.count == 0 %>
-	<h1 class = "center"> No notes found with that name</h1> 
+	<h1 class = "center"> No notes found</h1> 
 	<% else %>
 	<p class = "center"><%= @notes.count %> notes found </p>
 	<% end %>
@@ -44,7 +44,8 @@
 
 </div>
 <% end %>
-
+<%= will_paginate @notes, :previous_label => "older", :next_label => "newer",
+                          :inner_window => 3, :outer_window => 3 %>
 <div id = "placeholder_above_footer"></div>
 <div id = "footer_index">
 <p id = "copyright">&copy;Akash Pinnaka</p>

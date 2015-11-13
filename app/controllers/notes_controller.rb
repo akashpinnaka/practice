@@ -9,9 +9,9 @@ class NotesController < ApplicationController
   def index
     if params[:search]
       #@notes = Note.where(["title LIKE ?", "%#{params[:search]}%"])
-      @notes = Note.search(params[:search])
+      @notes = Note.search(params[:search]).order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
     else
-      @notes = @user.notes.order("created_at DESC")
+      @notes = @user.notes.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
     end  
   end
 
